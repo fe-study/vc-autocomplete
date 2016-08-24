@@ -11,7 +11,7 @@
     "build": "npm run build:dev && npm run build:prod && npm run build:example",
     "dev": " webpack -w --progress --hide-modules --config webpack.config.js",
     "example": " webpack -w --progress --hide-modules --config webpack.example.js",
-    "publish": "npm build && npm publish"
+    "release": "npm run build && npm publish"
   },
   "main": "dist/build.js",
   "repository": {

@@ -54,6 +54,7 @@
 
 .autocomplete ul {
     width: auto;
+    min-width: 100%;
     font-family: sans-serif;
     position: absolute;
     left: 50%;
