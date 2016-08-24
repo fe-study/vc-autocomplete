@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <link rel="stylesheet" href="./static/css/bootstrap.min.css">
+	<title>example</title>
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-thumb {
+            box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.5);
+            border-radius: 4px;
+            background: rgba(119, 129, 149, 0.8);
+        }
+        .container {
+            width: 300px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1 align="center">@Vue Component - vc-autocomplete</h1>
+    <hr>
+
+	<div id="app" class="container">
+
+        <vc-autocomplete
+            :id="id"
+            :name="name"
+            :autofocus="autofocus"
+            :label="label"
+            :placeholder="placeholder"
+            :url="url"
+            :param="queryBase"
+            :target="target"
+            :anchor="anchor"
+            :data-parser="parser"
+            :parent-model-key="parentModelKey"
+        >
+        </vc-autocomplete>
+
+        <div class="form-group">
+            <label>配置组件的label属性</label>
+            <input type="text" class="form-control" placeholder="label" v-model="label" />
+        </div>
+
+        <div class="form-group">
+            <label>配置组件的placeholder</label>
+            <input type="text" class="form-control" placeholder="placeholder" v-model="placeholder" />
+        </div>
+
+        <div class="form-group">
+            <label>配置组件的url</label>
+            <input type="text" class="form-control" url="url" v-model="url" />
+        </div>
+
+        <div class="form-group">
+            <label>配置组件的target</label>
+            <input type="text" class="form-control" target="target" v-model="target" />
+        </div>
+
+        <div class="form-group">
+            <label>配置组件的anchor</label>
+            <input type="text" class="form-control" anchor="anchor" v-model="anchor" />
+        </div>
+
+        <div class="form-group">
+            <label>配置组件的parentModelKey</label>
+            <input type="text" class="form-control" parentModelKey="parentModelKey" v-model="parentModelKey" />
+        </div>
+
+        <hr> 一下为例子配置项,配合Demo中的github的API</hr>
+        <div class="form-group">
+            <label>配置组件的page</label>
+            <input type="text" class="form-control" page="page" v-model="page" />
+        </div>
+
+        <div class="form-group">
+            <label>配置组件的per_page</label>
+            <input type="text" class="form-control" per_page="per_page" v-model="per_page" />
+        </div>
+
+	</div>
+	<script src='../dist/example.js'></script>
+</body>
+</html>
