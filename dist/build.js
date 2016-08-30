@@ -4,9 +4,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define([], factory);
 	else if(typeof exports === 'object')
-		exports["VueComponentsName"] = factory();
+		exports["vcAutocomplete"] = factory();
 	else
-		root["VueComponentsName"] = factory();
+		root["vcAutocomplete"] = factory();
 })(this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -71,37 +71,58 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 11);
+/******/ 	return __webpack_require__(__webpack_require__.s = 55);
 /******/ })
 /************************************************************************/
 /******/ ([
-/* 0 */,
+/* 0 */
+/***/ function(module, exports) {
+
+var core = module.exports = {version: '2.4.0'};
+if(typeof __e == 'number')__e = core; // eslint-disable-line no-undef
+
+/***/ },
 /* 1 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-__webpack_require__(3)
-module.exports = __webpack_require__(10)
-
-if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(6)
-if (false) {
-(function () {
-var hotAPI = require("vue-hot-reload-api")
-hotAPI.install(require("vue"))
-if (!hotAPI.compatible) return
-var id = "-!babel!./../../../node_modules/.7.1.7@vue-loader/lib/selector.js?type=script&index=0!./Autocomplete.vue"
-hotAPI.createRecord(id, module.exports)
-module.hot.accept(["-!babel!./../../../node_modules/.7.1.7@vue-loader/lib/selector.js?type=script&index=0!./Autocomplete.vue","-!vue-html-loader!./../../../node_modules/.7.1.7@vue-loader/lib/selector.js?type=template&index=0!./Autocomplete.vue"], function () {
-var newOptions = require("-!babel!./../../../node_modules/.7.1.7@vue-loader/lib/selector.js?type=script&index=0!./Autocomplete.vue")
-if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-var newTemplate = require("-!vue-html-loader!./../../../node_modules/.7.1.7@vue-loader/lib/selector.js?type=template&index=0!./Autocomplete.vue")
-hotAPI.update(id, newOptions, newTemplate)
-})
-})()
-}
+module.exports = function(it){
+  return typeof it === 'object' ? it !== null : typeof it === 'function';
+};
 
 /***/ },
 /* 2 */
+/***/ function(module, exports, __webpack_require__) {
+
+// Thank's IE8 for his funny defineProperty
+module.exports = !__webpack_require__(3)(function(){
+  return Object.defineProperty({}, 'a', {get: function(){ return 7; }}).a != 7;
+});
+
+/***/ },
+/* 3 */
+/***/ function(module, exports) {
+
+module.exports = function(exec){
+  try {
+    return !!exec();
+  } catch(e){
+    return true;
+  }
+};
+
+/***/ },
+/* 4 */
+/***/ function(module, exports) {
+
+// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
+var global = module.exports = typeof window != 'undefined' && window.Math == Math
+  ? window : typeof self != 'undefined' && self.Math == Math ? self : Function('return this')();
+if(typeof __g == 'number')__g = global; // eslint-disable-line no-undef
+
+/***/ },
+/* 5 */,
+/* 6 */,
+/* 7 */
 /***/ function(module, exports) {
 
 /*
@@ -353,47 +374,7 @@ function updateLink(linkElement, obj) {
 
 
 /***/ },
-/* 3 */
-/***/ function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(4);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// add the styles to the DOM
-var update = __webpack_require__(2)(content, {});
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!./../../../node_modules/.0.21.0@css-loader/index.js!./../../../node_modules/.7.1.7@vue-loader/lib/style-rewriter.js?id=_v-0af67f43&file=Autocomplete.vue!./../../../node_modules/.2.2.3@less-loader/index.js!./../../../node_modules/.7.1.7@vue-loader/lib/selector.js?type=style&index=0!./Autocomplete.vue", function() {
-			var newContent = require("!!./../../../node_modules/.0.21.0@css-loader/index.js!./../../../node_modules/.7.1.7@vue-loader/lib/style-rewriter.js?id=_v-0af67f43&file=Autocomplete.vue!./../../../node_modules/.2.2.3@less-loader/index.js!./../../../node_modules/.7.1.7@vue-loader/lib/selector.js?type=style&index=0!./Autocomplete.vue");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ },
-/* 4 */
-/***/ function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(5)();
-// imports
-
-
-// module
-exports.push([module.i, ".vc-autocomplete-component {\n  position: relative;\n}\n.vc-autocomplete-component .input-box {\n  display: inline-block;\n  position: relative;\n}\n.vc-autocomplete-component .input-box:hover .clear-it {\n  visibility: visible;\n}\n.vc-autocomplete-component .input-box .clear-it {\n  visibility: hidden;\n  position: absolute;\n  right: 6px;\n  top: 50%;\n  -webkit-transform: translateY(-50%);\n  transform: translateY(-50%);\n  opacity: .3;\n}\n.transition,\n.autocomplete,\n.showAll-transition,\n.autocomplete ul,\n.autocomplete ul li a {\n  transition: all 0.3s ease-out;\n  -moz-transition: all 0.3s ease-out;\n  -webkit-transition: all 0.3s ease-out;\n  -o-transition: all 0.3s ease-out;\n}\n.autocomplete ul {\n  width: auto;\n  min-width: 100%;\n  font-family: sans-serif;\n  position: absolute;\n  left: 50%;\n  -webkit-transform: translate(-50%);\n  transform: translate(-50%);\n  list-style: none;\n  background: #fff;\n  padding: 1px;\n  margin: 0;\n  display: inline-block;\n  margin-top: 10px;\n}\n/* 三角形 */\n.autocomplete ul:before {\n  content: \"\";\n  display: block;\n  position: absolute;\n  height: 0;\n  width: 0;\n  border: 10px solid transparent;\n  border-bottom: 10px solid rgba(0, 0, 0, 0.15);\n  left: 46%;\n  top: -20px;\n}\n.autocomplete ul:after {\n  content: \"\";\n  display: block;\n  position: absolute;\n  height: 0;\n  width: 0;\n  border: 10px solid transparent;\n  border-bottom: 10px solid #fff;\n  left: 46%;\n  top: -19px;\n}\n.autocomplete ul li a {\n  text-decoration: none;\n  display: block;\n  color: #2b2b2b;\n  padding: 5px;\n  padding-left: 10px;\n}\n.autocomplete ul li a:hover,\n.autocomplete ul li.focus-list a {\n  color: white;\n  background: #2F9AF7;\n}\n.autocomplete ul li a span {\n  display: block;\n  margin-top: 3px;\n  color: grey;\n  font-size: 13px;\n}\n.autocomplete ul li a:hover span,\n.autocomplete ul li.focus-list a span {\n  color: white;\n}\n.showAll-transition {\n  opacity: 1;\n  height: 30px;\n  overflow: hidden;\n}\n.showAll-enter {\n  opacity: 0.3;\n  height: 0;\n}\n.showAll-leave {\n  display: none;\n}\n", ""]);
-
-// exports
-
-
-/***/ },
-/* 5 */
+/* 8 */
 /***/ function(module, exports) {
 
 /*
@@ -449,36 +430,603 @@ module.exports = function() {
 
 
 /***/ },
-/* 6 */
+/* 9 */
 /***/ function(module, exports) {
 
-module.exports = "<div class=\"vc-autocomplete-component form-group\">\n        <label class=\"\">{{ label }}</label>\n        <div class=\"input-box\">\n            <input v-el:input type=\"text\" :id=\"id\" class=\"form-control\" autocomplete=\"off\" :class=\"class\" :name=\"name\" :placeholder=\"placeholder\" v-model=\"vm\" @input=\"input(vm) | debounce 300\" @blur=\"hideAll\" @keydown=\"keydown\" @focus=\"focus\" />\n            <span class=\"clear-it glyphicon glyphicon-remove-circle\" aria-hidden=\"true\" @click=\"clear()\"></span>\n            <div class=\"autocomplete transition autocomplete-{{ name }}\" id=\"autocomplete-{{ name }}\" v-show=\"showList\"> \n                <ul v-if=\"jsonList && jsonList.length > 0\" class=\"dropdown-menu\"> \n                    <li v-for=\"data in jsonList\" transition=\"showAll\" :class=\"activeClass($index)\"> \n                        <a href=\"#\" @click.prevent=\"$emit('selectList',data)\" @mousemove=\"mousemove($index)\">\n                            <span class=\"vc-autocomplete-item\">{{ data[anchor] }} {{ data[anchorPlus] }}</span>\n                        </a> \n                    </li>\n                </ul> \n                <ul class=\"dropdown-menu\" v-if=\"showNoContentTip\" style=\"text-align: center;padding: 10px;\">没有匹配的{{ label }}数据</ul>\n            </div>\n        </div>\n    </div>";
+// 7.2.1 RequireObjectCoercible(argument)
+module.exports = function(it){
+  if(it == undefined)throw TypeError("Can't call method on  " + it);
+  return it;
+};
 
 /***/ },
-/* 7 */
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
-var core  = __webpack_require__(8)
+var global    = __webpack_require__(4)
+  , core      = __webpack_require__(0)
+  , ctx       = __webpack_require__(27)
+  , hide      = __webpack_require__(31)
+  , PROTOTYPE = 'prototype';
+
+var $export = function(type, name, source){
+  var IS_FORCED = type & $export.F
+    , IS_GLOBAL = type & $export.G
+    , IS_STATIC = type & $export.S
+    , IS_PROTO  = type & $export.P
+    , IS_BIND   = type & $export.B
+    , IS_WRAP   = type & $export.W
+    , exports   = IS_GLOBAL ? core : core[name] || (core[name] = {})
+    , expProto  = exports[PROTOTYPE]
+    , target    = IS_GLOBAL ? global : IS_STATIC ? global[name] : (global[name] || {})[PROTOTYPE]
+    , key, own, out;
+  if(IS_GLOBAL)source = name;
+  for(key in source){
+    // contains in native
+    own = !IS_FORCED && target && target[key] !== undefined;
+    if(own && key in exports)continue;
+    // export native or passed
+    out = own ? target[key] : source[key];
+    // prevent global pollution for namespaces
+    exports[key] = IS_GLOBAL && typeof target[key] != 'function' ? source[key]
+    // bind timers to global for call from export context
+    : IS_BIND && own ? ctx(out, global)
+    // wrap global constructors for prevent change them in library
+    : IS_WRAP && target[key] == out ? (function(C){
+      var F = function(a, b, c){
+        if(this instanceof C){
+          switch(arguments.length){
+            case 0: return new C;
+            case 1: return new C(a);
+            case 2: return new C(a, b);
+          } return new C(a, b, c);
+        } return C.apply(this, arguments);
+      };
+      F[PROTOTYPE] = C[PROTOTYPE];
+      return F;
+    // make static versions for prototype methods
+    })(out) : IS_PROTO && typeof out == 'function' ? ctx(Function.call, out) : out;
+    // export proto methods to core.%CONSTRUCTOR%.methods.%NAME%
+    if(IS_PROTO){
+      (exports.virtual || (exports.virtual = {}))[key] = out;
+      // export proto methods to core.%CONSTRUCTOR%.prototype.%NAME%
+      if(type & $export.R && expProto && !expProto[key])hide(expProto, key, out);
+    }
+  }
+};
+// type bitmap
+$export.F = 1;   // forced
+$export.G = 2;   // global
+$export.S = 4;   // static
+$export.P = 8;   // proto
+$export.B = 16;  // bind
+$export.W = 32;  // wrap
+$export.U = 64;  // safe
+$export.R = 128; // real proto method for `library` 
+module.exports = $export;
+
+/***/ },
+/* 11 */
+/***/ function(module, exports) {
+
+// 7.1.4 ToInteger
+var ceil  = Math.ceil
+  , floor = Math.floor;
+module.exports = function(it){
+  return isNaN(it = +it) ? 0 : (it > 0 ? floor : ceil)(it);
+};
+
+/***/ },
+/* 12 */
+/***/ function(module, exports, __webpack_require__) {
+
+// to indexed object, toObject with fallback for non-array-like ES3 strings
+var IObject = __webpack_require__(33)
+  , defined = __webpack_require__(9);
+module.exports = function(it){
+  return IObject(defined(it));
+};
+
+/***/ },
+/* 13 */
+/***/ function(module, exports, __webpack_require__) {
+
+__webpack_require__(14)
+module.exports = __webpack_require__(53)
+
+if (module.exports.__esModule) module.exports = module.exports.default
+;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(19)
+if (false) {
+(function () {
+var hotAPI = require("vue-hot-reload-api")
+hotAPI.install(require("vue"))
+if (!hotAPI.compatible) return
+var id = "-!babel!./../../../node_modules/.7.1.7@vue-loader/lib/selector.js?type=script&index=0!./Autocomplete.vue"
+hotAPI.createRecord(id, module.exports)
+module.hot.accept(["-!babel!./../../../node_modules/.7.1.7@vue-loader/lib/selector.js?type=script&index=0!./Autocomplete.vue","-!vue-html-loader!./../../../node_modules/.7.1.7@vue-loader/lib/selector.js?type=template&index=0!./Autocomplete.vue"], function () {
+var newOptions = require("-!babel!./../../../node_modules/.7.1.7@vue-loader/lib/selector.js?type=script&index=0!./Autocomplete.vue")
+if (newOptions && newOptions.__esModule) newOptions = newOptions.default
+var newTemplate = require("-!vue-html-loader!./../../../node_modules/.7.1.7@vue-loader/lib/selector.js?type=template&index=0!./Autocomplete.vue")
+hotAPI.update(id, newOptions, newTemplate)
+})
+})()
+}
+
+/***/ },
+/* 14 */
+/***/ function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(16);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// add the styles to the DOM
+var update = __webpack_require__(7)(content, {});
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!./../../../node_modules/.0.21.0@css-loader/index.js!./../../../node_modules/.7.1.7@vue-loader/lib/style-rewriter.js?id=_v-025b5d39&file=Autocomplete.vue!./../../../node_modules/.2.2.3@less-loader/index.js!./../../../node_modules/.7.1.7@vue-loader/lib/selector.js?type=style&index=0!./Autocomplete.vue", function() {
+			var newContent = require("!!./../../../node_modules/.0.21.0@css-loader/index.js!./../../../node_modules/.7.1.7@vue-loader/lib/style-rewriter.js?id=_v-025b5d39&file=Autocomplete.vue!./../../../node_modules/.2.2.3@less-loader/index.js!./../../../node_modules/.7.1.7@vue-loader/lib/selector.js?type=style&index=0!./Autocomplete.vue");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ },
+/* 15 */
+/***/ function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(17);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// add the styles to the DOM
+var update = __webpack_require__(7)(content, {});
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!./../../../.0.21.0@css-loader/index.js!./../../../.7.1.7@vue-loader/lib/style-rewriter.js?id=_v-2b8bb4be&file=Easyclearinput.vue!./../../../.2.2.3@less-loader/index.js!./../../../.7.1.7@vue-loader/lib/selector.js?type=style&index=0!./Easyclearinput.vue", function() {
+			var newContent = require("!!./../../../.0.21.0@css-loader/index.js!./../../../.7.1.7@vue-loader/lib/style-rewriter.js?id=_v-2b8bb4be&file=Easyclearinput.vue!./../../../.2.2.3@less-loader/index.js!./../../../.7.1.7@vue-loader/lib/selector.js?type=style&index=0!./Easyclearinput.vue");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ },
+/* 16 */
+/***/ function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(8)();
+// imports
+
+
+// module
+exports.push([module.i, ".vc-autocomplete-component {\n  position: relative;\n}\n.vc-autocomplete-component .input-box {\n  display: inline-block;\n  position: relative;\n}\n.vc-autocomplete-component .input-box:hover .clear-it {\n  visibility: visible;\n}\n.vc-autocomplete-component .input-box .clear-it {\n  visibility: hidden;\n  position: absolute;\n  right: 6px;\n  top: 50%;\n  -webkit-transform: translateY(-50%);\n  transform: translateY(-50%);\n  opacity: .3;\n}\n.transition,\n.autocomplete,\n.showAll-transition,\n.autocomplete ul,\n.autocomplete ul li a {\n  transition: all 0.3s ease-out;\n  -moz-transition: all 0.3s ease-out;\n  -webkit-transition: all 0.3s ease-out;\n  -o-transition: all 0.3s ease-out;\n}\n.autocomplete ul {\n  width: auto;\n  min-width: 100%;\n  font-family: sans-serif;\n  position: absolute;\n  left: 50%;\n  -webkit-transform: translate(-50%);\n  transform: translate(-50%);\n  list-style: none;\n  background: #fff;\n  padding: 1px;\n  margin: 0;\n  display: inline-block;\n  margin-top: 10px;\n}\n/* 三角形 */\n.autocomplete ul:before {\n  content: \"\";\n  display: block;\n  position: absolute;\n  height: 0;\n  width: 0;\n  border: 10px solid transparent;\n  border-bottom: 10px solid rgba(0, 0, 0, 0.15);\n  left: 46%;\n  top: -20px;\n}\n.autocomplete ul:after {\n  content: \"\";\n  display: block;\n  position: absolute;\n  height: 0;\n  width: 0;\n  border: 10px solid transparent;\n  border-bottom: 10px solid #fff;\n  left: 46%;\n  top: -19px;\n}\n.autocomplete ul li a {\n  text-decoration: none;\n  display: block;\n  color: #2b2b2b;\n  padding: 5px;\n  padding-left: 10px;\n}\n.autocomplete ul li a:hover,\n.autocomplete ul li.focus-list a {\n  color: white;\n  background: #2F9AF7;\n}\n.autocomplete ul li a span {\n  display: block;\n  margin-top: 3px;\n  color: grey;\n  font-size: 13px;\n}\n.autocomplete ul li a:hover span,\n.autocomplete ul li.focus-list a span {\n  color: white;\n}\n.showAll-transition {\n  opacity: 1;\n  height: 30px;\n  overflow: hidden;\n}\n.showAll-enter {\n  opacity: 0.3;\n  height: 0;\n}\n.showAll-leave {\n  display: none;\n}\n", ""]);
+
+// exports
+
+
+/***/ },
+/* 17 */
+/***/ function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(8)();
+// imports
+
+
+// module
+exports.push([module.i, ".vc-easyclearinput-component .label-item {\n  font-weight: normal;\n  margin-right: 5px;\n  display: table;\n  vertical-align: bottom;\n  float: left;\n  height: 34px;\n  line-height: 34px;\n}\n.vc-easyclearinput-component .glyphicon {\n  z-index: 9;\n}\n.vc-easyclearinput-component .input-box {\n  display: table;\n  position: relative;\n}\n.vc-easyclearinput-component .input-box .form-control {\n  width: 100%;\n}\n.vc-easyclearinput-component .input-box:hover .clear-it {\n  visibility: visible;\n}\n.vc-easyclearinput-component .input-box .clear-it {\n  visibility: hidden;\n  position: absolute;\n  top: 50%;\n  right: 6px;\n  -webkit-transform: translateY(-50%);\n  transform: translateY(-50%);\n  opacity: .3;\n}\n.vc-easyclearinput-component .input-box .clear-it.has-icon {\n  right: 28px;\n}\n.vc-easyclearinput-component .info-text {\n  position: absolute;\n  top: -22px;\n}\n.vc-easyclearinput-component .info-text.with-success {\n  color: #87d068;\n}\n.vc-easyclearinput-component .info-text.with-warning {\n  color: #fa0;\n}\n.vc-easyclearinput-component .info-text.with-error {\n  color: #f50;\n}\n", ""]);
+
+// exports
+
+
+/***/ },
+/* 18 */
+/***/ function(module, exports) {
+
+module.exports = "<div class=\"vc-easyclearinput-component form-group\" :class=\"[statusClass, { 'has-feedback': icon }]\" :style=\"{ 'width': optionalWidth }\">\n        <label class=\"label-item\">{{ label }}&nbsp;:</label>\n        <div :class=\"{ 'input-box': true, 'input-group': hasSlot }\">\n            <slot name=\"input-before\"></slot>\n            <span v-if=\"!hasSlot\" style=\"width: 1%;display: table-cell\">&nbsp;</span><!-- 占位元素，用于撑开宽度，原因未知 -->\n            <span v-if=\"icon\" class=\"glyphicon form-control-feedback\" :class=\"iconClass\" aria-hidden=\"true\"></span>\n            <span @click=\"handleClear\" class=\"clear-it glyphicon glyphicon-remove-circle\" :class=\"{ 'has-icon': icon, 'hide': disabled || readOnly }\" aria-hidden=\"true\"></span>\n            <div class=\"info-text\" :class=\"infoTextClass\">{{ infoText }}</div>\n            <input class=\"form-control\"\n                v-el:input\n                :type=\"type\"\n                :disabled=\"disabled\"\n                :readOnly=\"readOnly\"\n                v-model=\"value\"\n                :placeholder=\"placeholder\"\n                @focus=\"handleFocus\"\n                @blur=\"handleBlur\"\n            />\n        </div>\n    </div>";
+
+/***/ },
+/* 19 */
+/***/ function(module, exports) {
+
+module.exports = "<div class=\"vc-autocomplete-component form-group\">\n        <!--\n        <label class=\"\">{{ label }}</label>\n        <div class=\"input-box\">\n            <input type=\"text\" class=\"form-control\" autocomplete=\"off\"\n                v-el:input\n                :name=\"name\"\n                :placeholder=\"placeholder\"\n                v-model=\"vm\"\n                @input=\"input(vm)\"\n                @blur=\"hideAll\"\n                @keydown=\"keydown\"\n                @focus=\"focus\"\n            />\n            <span class=\"clear-it glyphicon glyphicon-remove-circle\" aria-hidden=\"true\" @click=\"clear()\"></span>\n        </div>\n        -->\n        <vc-easyclearinput\n            :name=\"name\"\n            type=\"text\"\n            :value.sync=\"vm\"\n            :placeholder=\"placeholder\"\n            :label=\"label\"\n            @input=\"input | debounce 300\"\n            :on-blur=\"hideAll\"\n            :on-focus=\"focus\"\n            @keydown=\"keydown\"\n        >\n        </vc-easyclearinput>\n        <div class=\"autocomplete transition autocomplete-{{ name }}\" id=\"autocomplete-{{ name }}\" v-show=\"showList\"> \n            <ul v-if=\"jsonList && jsonList.length > 0\" class=\"dropdown-menu\"> \n                <li v-for=\"data in jsonList\" transition=\"showAll\" :class=\"activeClass($index)\"> \n                    <a href=\"#\" @click.prevent=\"$emit('selectList',data)\" @mousemove=\"mousemove($index)\">\n                        <span class=\"vc-autocomplete-item\">{{ data[anchor] }} {{ data[anchorPlus] }}</span>\n                    </a> \n                </li>\n            </ul> \n            <ul class=\"dropdown-menu\" v-if=\"showNoContentTip\" style=\"text-align: center;padding: 10px;\">没有匹配的{{ label }}数据</ul>\n        </div>\n    </div>";
+
+/***/ },
+/* 20 */
+/***/ function(module, exports, __webpack_require__) {
+
+var core  = __webpack_require__(0)
   , $JSON = core.JSON || (core.JSON = {stringify: JSON.stringify});
 module.exports = function stringify(it){ // eslint-disable-line no-unused-vars
   return $JSON.stringify.apply($JSON, arguments);
 };
 
 /***/ },
-/* 8 */
-/***/ function(module, exports) {
-
-var core = module.exports = {version: '2.4.0'};
-if(typeof __e == 'number')__e = core; // eslint-disable-line no-undef
-
-/***/ },
-/* 9 */
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(7), __esModule: true };
+__webpack_require__(47);
+module.exports = __webpack_require__(0).Number.isInteger;
 
 /***/ },
-/* 10 */
+/* 22 */
+/***/ function(module, exports, __webpack_require__) {
+
+__webpack_require__(48);
+module.exports = __webpack_require__(0).Object.keys;
+
+/***/ },
+/* 23 */
+/***/ function(module, exports) {
+
+module.exports = function(it){
+  if(typeof it != 'function')throw TypeError(it + ' is not a function!');
+  return it;
+};
+
+/***/ },
+/* 24 */
+/***/ function(module, exports, __webpack_require__) {
+
+var isObject = __webpack_require__(1);
+module.exports = function(it){
+  if(!isObject(it))throw TypeError(it + ' is not an object!');
+  return it;
+};
+
+/***/ },
+/* 25 */
+/***/ function(module, exports, __webpack_require__) {
+
+// false -> Array#indexOf
+// true  -> Array#includes
+var toIObject = __webpack_require__(12)
+  , toLength  = __webpack_require__(43)
+  , toIndex   = __webpack_require__(42);
+module.exports = function(IS_INCLUDES){
+  return function($this, el, fromIndex){
+    var O      = toIObject($this)
+      , length = toLength(O.length)
+      , index  = toIndex(fromIndex, length)
+      , value;
+    // Array#includes uses SameValueZero equality algorithm
+    if(IS_INCLUDES && el != el)while(length > index){
+      value = O[index++];
+      if(value != value)return true;
+    // Array#toIndex ignores holes, Array#includes - not
+    } else for(;length > index; index++)if(IS_INCLUDES || index in O){
+      if(O[index] === el)return IS_INCLUDES || index || 0;
+    } return !IS_INCLUDES && -1;
+  };
+};
+
+/***/ },
+/* 26 */
+/***/ function(module, exports) {
+
+var toString = {}.toString;
+
+module.exports = function(it){
+  return toString.call(it).slice(8, -1);
+};
+
+/***/ },
+/* 27 */
+/***/ function(module, exports, __webpack_require__) {
+
+// optional / simple context binding
+var aFunction = __webpack_require__(23);
+module.exports = function(fn, that, length){
+  aFunction(fn);
+  if(that === undefined)return fn;
+  switch(length){
+    case 1: return function(a){
+      return fn.call(that, a);
+    };
+    case 2: return function(a, b){
+      return fn.call(that, a, b);
+    };
+    case 3: return function(a, b, c){
+      return fn.call(that, a, b, c);
+    };
+  }
+  return function(/* ...args */){
+    return fn.apply(that, arguments);
+  };
+};
+
+/***/ },
+/* 28 */
+/***/ function(module, exports, __webpack_require__) {
+
+var isObject = __webpack_require__(1)
+  , document = __webpack_require__(4).document
+  // in old IE typeof document.createElement is 'object'
+  , is = isObject(document) && isObject(document.createElement);
+module.exports = function(it){
+  return is ? document.createElement(it) : {};
+};
+
+/***/ },
+/* 29 */
+/***/ function(module, exports) {
+
+// IE 8- don't enum bug keys
+module.exports = (
+  'constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf'
+).split(',');
+
+/***/ },
+/* 30 */
+/***/ function(module, exports) {
+
+var hasOwnProperty = {}.hasOwnProperty;
+module.exports = function(it, key){
+  return hasOwnProperty.call(it, key);
+};
+
+/***/ },
+/* 31 */
+/***/ function(module, exports, __webpack_require__) {
+
+var dP         = __webpack_require__(35)
+  , createDesc = __webpack_require__(39);
+module.exports = __webpack_require__(2) ? function(object, key, value){
+  return dP.f(object, key, createDesc(1, value));
+} : function(object, key, value){
+  object[key] = value;
+  return object;
+};
+
+/***/ },
+/* 32 */
+/***/ function(module, exports, __webpack_require__) {
+
+module.exports = !__webpack_require__(2) && !__webpack_require__(3)(function(){
+  return Object.defineProperty(__webpack_require__(28)('div'), 'a', {get: function(){ return 7; }}).a != 7;
+});
+
+/***/ },
+/* 33 */
+/***/ function(module, exports, __webpack_require__) {
+
+// fallback for non-array-like ES3 and non-enumerable old V8 strings
+var cof = __webpack_require__(26);
+module.exports = Object('z').propertyIsEnumerable(0) ? Object : function(it){
+  return cof(it) == 'String' ? it.split('') : Object(it);
+};
+
+/***/ },
+/* 34 */
+/***/ function(module, exports, __webpack_require__) {
+
+// 20.1.2.3 Number.isInteger(number)
+var isObject = __webpack_require__(1)
+  , floor    = Math.floor;
+module.exports = function isInteger(it){
+  return !isObject(it) && isFinite(it) && floor(it) === it;
+};
+
+/***/ },
+/* 35 */
+/***/ function(module, exports, __webpack_require__) {
+
+var anObject       = __webpack_require__(24)
+  , IE8_DOM_DEFINE = __webpack_require__(32)
+  , toPrimitive    = __webpack_require__(45)
+  , dP             = Object.defineProperty;
+
+exports.f = __webpack_require__(2) ? Object.defineProperty : function defineProperty(O, P, Attributes){
+  anObject(O);
+  P = toPrimitive(P, true);
+  anObject(Attributes);
+  if(IE8_DOM_DEFINE)try {
+    return dP(O, P, Attributes);
+  } catch(e){ /* empty */ }
+  if('get' in Attributes || 'set' in Attributes)throw TypeError('Accessors not supported!');
+  if('value' in Attributes)O[P] = Attributes.value;
+  return O;
+};
+
+/***/ },
+/* 36 */
+/***/ function(module, exports, __webpack_require__) {
+
+var has          = __webpack_require__(30)
+  , toIObject    = __webpack_require__(12)
+  , arrayIndexOf = __webpack_require__(25)(false)
+  , IE_PROTO     = __webpack_require__(40)('IE_PROTO');
+
+module.exports = function(object, names){
+  var O      = toIObject(object)
+    , i      = 0
+    , result = []
+    , key;
+  for(key in O)if(key != IE_PROTO)has(O, key) && result.push(key);
+  // Don't enum bug & hidden keys
+  while(names.length > i)if(has(O, key = names[i++])){
+    ~arrayIndexOf(result, key) || result.push(key);
+  }
+  return result;
+};
+
+/***/ },
+/* 37 */
+/***/ function(module, exports, __webpack_require__) {
+
+// 19.1.2.14 / 15.2.3.14 Object.keys(O)
+var $keys       = __webpack_require__(36)
+  , enumBugKeys = __webpack_require__(29);
+
+module.exports = Object.keys || function keys(O){
+  return $keys(O, enumBugKeys);
+};
+
+/***/ },
+/* 38 */
+/***/ function(module, exports, __webpack_require__) {
+
+// most Object methods by ES6 should accept primitives
+var $export = __webpack_require__(10)
+  , core    = __webpack_require__(0)
+  , fails   = __webpack_require__(3);
+module.exports = function(KEY, exec){
+  var fn  = (core.Object || {})[KEY] || Object[KEY]
+    , exp = {};
+  exp[KEY] = exec(fn);
+  $export($export.S + $export.F * fails(function(){ fn(1); }), 'Object', exp);
+};
+
+/***/ },
+/* 39 */
+/***/ function(module, exports) {
+
+module.exports = function(bitmap, value){
+  return {
+    enumerable  : !(bitmap & 1),
+    configurable: !(bitmap & 2),
+    writable    : !(bitmap & 4),
+    value       : value
+  };
+};
+
+/***/ },
+/* 40 */
+/***/ function(module, exports, __webpack_require__) {
+
+var shared = __webpack_require__(41)('keys')
+  , uid    = __webpack_require__(46);
+module.exports = function(key){
+  return shared[key] || (shared[key] = uid(key));
+};
+
+/***/ },
+/* 41 */
+/***/ function(module, exports, __webpack_require__) {
+
+var global = __webpack_require__(4)
+  , SHARED = '__core-js_shared__'
+  , store  = global[SHARED] || (global[SHARED] = {});
+module.exports = function(key){
+  return store[key] || (store[key] = {});
+};
+
+/***/ },
+/* 42 */
+/***/ function(module, exports, __webpack_require__) {
+
+var toInteger = __webpack_require__(11)
+  , max       = Math.max
+  , min       = Math.min;
+module.exports = function(index, length){
+  index = toInteger(index);
+  return index < 0 ? max(index + length, 0) : min(index, length);
+};
+
+/***/ },
+/* 43 */
+/***/ function(module, exports, __webpack_require__) {
+
+// 7.1.15 ToLength
+var toInteger = __webpack_require__(11)
+  , min       = Math.min;
+module.exports = function(it){
+  return it > 0 ? min(toInteger(it), 0x1fffffffffffff) : 0; // pow(2, 53) - 1 == 9007199254740991
+};
+
+/***/ },
+/* 44 */
+/***/ function(module, exports, __webpack_require__) {
+
+// 7.1.13 ToObject(argument)
+var defined = __webpack_require__(9);
+module.exports = function(it){
+  return Object(defined(it));
+};
+
+/***/ },
+/* 45 */
+/***/ function(module, exports, __webpack_require__) {
+
+// 7.1.1 ToPrimitive(input [, PreferredType])
+var isObject = __webpack_require__(1);
+// instead of the ES6 spec version, we didn't implement @@toPrimitive case
+// and the second argument - flag - preferred type is a string
+module.exports = function(it, S){
+  if(!isObject(it))return it;
+  var fn, val;
+  if(S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it)))return val;
+  if(typeof (fn = it.valueOf) == 'function' && !isObject(val = fn.call(it)))return val;
+  if(!S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it)))return val;
+  throw TypeError("Can't convert object to primitive value");
+};
+
+/***/ },
+/* 46 */
+/***/ function(module, exports) {
+
+var id = 0
+  , px = Math.random();
+module.exports = function(key){
+  return 'Symbol('.concat(key === undefined ? '' : key, ')_', (++id + px).toString(36));
+};
+
+/***/ },
+/* 47 */
+/***/ function(module, exports, __webpack_require__) {
+
+// 20.1.2.3 Number.isInteger(number)
+var $export = __webpack_require__(10);
+
+$export($export.S, 'Number', {isInteger: __webpack_require__(34)});
+
+/***/ },
+/* 48 */
+/***/ function(module, exports, __webpack_require__) {
+
+// 19.1.2.14 Object.keys(O)
+var toObject = __webpack_require__(44)
+  , $keys    = __webpack_require__(37);
+
+__webpack_require__(38)('keys', function(){
+  return function keys(it){
+    return $keys(toObject(it));
+  };
+});
+
+/***/ },
+/* 49 */
+/***/ function(module, exports, __webpack_require__) {
+
+module.exports = { "default": __webpack_require__(20), __esModule: true };
+
+/***/ },
+/* 50 */
+/***/ function(module, exports, __webpack_require__) {
+
+module.exports = { "default": __webpack_require__(21), __esModule: true };
+
+/***/ },
+/* 51 */
+/***/ function(module, exports, __webpack_require__) {
+
+module.exports = { "default": __webpack_require__(22), __esModule: true };
+
+/***/ },
+/* 52 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -488,28 +1036,347 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _stringify = __webpack_require__(9);
+var _keys = __webpack_require__(51);
+
+var _keys2 = _interopRequireDefault(_keys);
+
+var _isInteger = __webpack_require__(50);
+
+var _isInteger2 = _interopRequireDefault(_isInteger);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// <template>
+//     <div class="vc-easyclearinput-component form-group" :class="[statusClass, { 'has-feedback': icon }]" :style="{ 'width': optionalWidth }">
+//         <label class="label-item">{{ label }}&nbsp;:</label>
+//         <div :class="{ 'input-box': true, 'input-group': hasSlot }">
+//             <slot name="input-before"></slot>
+//             <span v-if="!hasSlot" style="width: 1%;display: table-cell">&nbsp;</span><!-- 占位元素，用于撑开宽度，原因未知 -->
+//             <span v-if="icon" class="glyphicon form-control-feedback" :class="iconClass" aria-hidden="true"></span>
+//             <span @click="handleClear" class="clear-it glyphicon glyphicon-remove-circle" :class="{ 'has-icon': icon, 'hide': disabled || readOnly }" aria-hidden="true"></span>
+//             <div class="info-text" :class="infoTextClass">{{ infoText }}</div>
+//             <input class="form-control"
+//                 v-el:input
+//                 :type="type"
+//                 :disabled="disabled"
+//                 :readOnly="readOnly"
+//                 v-model="value"
+//                 :placeholder="placeholder"
+//                 @focus="handleFocus"
+//                 @blur="handleBlur"
+//             />
+//         </div>
+//     </div>
+// </template>
+
+// <style lang="less">
+// // container
+// .vc-easyclearinput-component {
+
+//     .label-item {
+//         font-weight: normal;
+//         margin-right: 5px;
+//         display: table;
+//         vertical-align: bottom;
+//         float: left;
+//         height: 34px;
+//         line-height: 34px;
+//     }
+
+//     .glyphicon {
+//         z-index: 9;
+//     }
+
+//     .input-box {
+//         display: table;
+//         position: relative;
+
+//         .form-control {
+//             width: 100%;
+//         }
+//         &:hover {
+//             .clear-it {
+//                 visibility: visible;
+//             }
+//         }
+
+//         .clear-it {
+//             visibility: hidden;
+//             position: absolute;
+//             top: 50%;
+//             right: 6px;
+//             // css3 it more flexible
+//             -webkit-transform: translateY(-50%);
+//             transform: translateY(-50%);
+//             opacity: .3;
+
+//             &.has-icon {
+//                 right: 28px;
+//             }
+//         }
+//     }
+
+//     @success: #87d068;
+//     @warning: #fa0;
+//     @error: #f50;
+//     .info-text {
+//         position: absolute;
+//         top: -22px;
+
+//         &.with-success {
+//             color: @success;
+//         }
+//         &.with-warning {
+//             color: @warning;
+//         }
+//         &.with-error {
+//             color: @error;
+//         }
+//     }
+
+// } // end of container
+// </style>
+
+// <script>
+var EVENT_DELAY = 128;
+
+exports.default = {
+    props: {
+        name: {
+            type: String,
+            default: 'vc-easyclearinput' + Date.now()
+        },
+        type: {
+            type: String,
+            default: 'text'
+        },
+        value: {
+            twoWay: true
+        },
+        label: String,
+        placeholder: String,
+        infoText: {
+            type: String,
+            default: ''
+        },
+        disabled: {
+            type: Boolean,
+            default: false
+        },
+        readOnly: {
+            type: Boolean,
+            default: false
+        },
+        autofocus: {
+            type: Boolean,
+            default: false
+        },
+        width: {
+            type: [Number, String],
+            default: '250'
+        },
+        icon: {
+            type: Boolean,
+            default: false
+        },
+        status: {
+            type: String,
+            default: ''
+        },
+        onFocus: { // focus回调
+            type: Function,
+            default: function _default() {}
+        },
+        onBlur: { // blur回调
+            type: Function,
+            default: function _default() {}
+        },
+        onClear: { // onClear回调
+            type: Function,
+            default: function _default() {}
+        }
+    },
+    data: function data() {
+        return {
+            isClear: false,
+            hasSlot: true
+        };
+    },
+    created: function created() {},
+    ready: function ready() {
+        if (this.autofocus) {
+            this.focusInput();
+        }
+        // 检查是否有用户自定义slot传入(input-before)
+        this.checkSlot();
+        // 检查用户是否内联了不该内联的事件(focus & blur)
+        this.checkEvents();
+    },
+    computed: {
+        optionalWidth: function optionalWidth() {
+            if (this.width == null || this.width === '') {
+                return null;
+            }
+            if ((0, _isInteger2.default)(+this.width)) {
+                return this.width + 'px';
+            }
+            return this.width;
+        },
+        statusClass: function statusClass() {
+            return 'has-' + this.status;
+        },
+        infoTextClass: function infoTextClass() {
+            return 'with-' + this.status;
+        },
+        iconClass: function iconClass() {
+            if (this.status === 'success') {
+                return 'glyphicon-ok';
+            }
+            if (this.status === 'warning') {
+                return 'glyphicon-warning-sign';
+            }
+            if (this.status === 'error') {
+                return 'glyphicon-remove';
+            }
+        }
+    },
+    watch: {
+        autofocus: function autofocus(val) {
+            if (val) {
+                this.focusInput();
+            }
+        }
+    },
+    methods: {
+        checkSlot: function checkSlot() {
+            var keys = (0, _keys2.default)(this._slotContents);
+            this.hasSlot = keys.some(function (item, index) {
+                return item === 'input-before';
+            });
+        },
+        checkEvents: function checkEvents() {
+            var focus = this._events.focus;
+            if (focus && focus.length > 0) {
+                console.warn('if you want to listen on focus event, please use `:on-focus` callback!');
+            }
+            var blur = this._events.blur;
+            if (blur && blur.length > 0) {
+                console.warn('if you want to listen on blur event, please use `:on-blur` callback!');
+            }
+        },
+
+        /**
+         * 点击清除按钮
+         * 1. blur 2. clear 3.focus again
+         * 事件修正，使得小叉号成为类似系统原生的和input一体的控件，
+         * 点击小叉号不应该带来input的失焦还有相应事件的响应
+         */
+        focusInput: function focusInput() {
+            // 工具方法
+            this.$els.input && this.$els.input.focus();
+        },
+        handleBlur: function handleBlur(e) {
+            var _this = this;
+
+            // console.log(1)
+            setTimeout(function () {
+                if (!_this.isClear) {
+                    _this.onBlur(e);
+                } else {
+                    setTimeout(function () {
+                        _this.focusInput();
+                    }, 0);
+                }
+                // this.isClear = false
+            }, EVENT_DELAY);
+        },
+        handleClear: function handleClear() {
+            // console.log(2)
+            // 可编辑状态下
+            if (!this.disabled && !this.readOnly) {
+                this.isClear = true;
+                this.value = '';
+                this.onClear();
+                this.focusInput();
+            }
+        },
+        handleFocus: function handleFocus(e) {
+            var _this2 = this;
+
+            // console.log(3)
+            setTimeout(function () {
+                if (!_this2.isClear) {
+                    _this2.onFocus(e);
+                }
+                _this2.isClear = false;
+            }, EVENT_DELAY + 10);
+        }
+    },
+    beforeDestroy: function beforeDestroy() {},
+    destroy: function destroy() {}
+};
+// </script>
+
+/***/ },
+/* 53 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _stringify = __webpack_require__(49);
 
 var _stringify2 = _interopRequireDefault(_stringify);
+
+var _Easyclearinput = __webpack_require__(54);
+
+var _Easyclearinput2 = _interopRequireDefault(_Easyclearinput);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // <template>
 //     <div class="vc-autocomplete-component form-group">
+//         <!--
 //         <label class="">{{ label }}</label>
 //         <div class="input-box">
-//             <input v-el:input type="text" :id="id" class="form-control" autocomplete="off" :class="class" :name="name" :placeholder="placeholder" v-model="vm" @input="input(vm) | debounce 300" @blur="hideAll" @keydown="keydown" @focus="focus" />
+//             <input type="text" class="form-control" autocomplete="off"
+//                 v-el:input
+//                 :name="name"
+//                 :placeholder="placeholder"
+//                 v-model="vm"
+//                 @input="input(vm)"
+//                 @blur="hideAll"
+//                 @keydown="keydown"
+//                 @focus="focus"
+//             />
 //             <span class="clear-it glyphicon glyphicon-remove-circle" aria-hidden="true" @click="clear()"></span>
-//             <div class="autocomplete transition autocomplete-{{ name }}" id="autocomplete-{{ name }}" v-show="showList"> 
-//                 <ul v-if="jsonList && jsonList.length > 0" class="dropdown-menu"> 
-//                     <li v-for="data in jsonList" transition="showAll" :class="activeClass($index)"> 
-//                         <a href="#" @click.prevent="$emit('selectList',data)" @mousemove="mousemove($index)">
-//                             <span class="vc-autocomplete-item">{{ data[anchor] }} {{ data[anchorPlus] }}</span>
-//                         </a> 
-//                     </li>
-//                 </ul> 
-//                 <ul class="dropdown-menu" v-if="showNoContentTip" style="text-align: center;padding: 10px;">没有匹配的{{ label }}数据</ul>
-//             </div>
+//         </div>
+//         -->
+//         <vc-easyclearinput
+//             :name="name"
+//             type="text"
+//             :value.sync="vm"
+//             :placeholder="placeholder"
+//             :label="label"
+//             @input="input | debounce 300"
+//             :on-blur="hideAll"
+//             :on-focus="focus"
+//             @keydown="keydown"
+//         >
+//         </vc-easyclearinput>
+//         <div class="autocomplete transition autocomplete-{{ name }}" id="autocomplete-{{ name }}" v-show="showList"> 
+//             <ul v-if="jsonList && jsonList.length > 0" class="dropdown-menu"> 
+//                 <li v-for="data in jsonList" transition="showAll" :class="activeClass($index)"> 
+//                     <a href="#" @click.prevent="$emit('selectList',data)" @mousemove="mousemove($index)">
+//                         <span class="vc-autocomplete-item">{{ data[anchor] }} {{ data[anchorPlus] }}</span>
+//                     </a> 
+//                 </li>
+//             </ul> 
+//             <ul class="dropdown-menu" v-if="showNoContentTip" style="text-align: center;padding: 10px;">没有匹配的{{ label }}数据</ul>
 //         </div>
 //     </div>
 // </template>
@@ -628,11 +1495,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // </style>
 
 // <script>
+var COMPONENT_NS = 'AUTOCOMPLETE';
+
 exports.default = {
     props: {
-        name: String, // name for unique component identity, also as input dom's name attr
-        id: String, // input dom's id attr
-        class: String, // input dom's class attr
+        // name for unique component identity, also as input dom's name attr
+        name: String,
+        // 比较模式
         autofocus: {
             type: Boolean,
             default: false
@@ -645,6 +1514,22 @@ exports.default = {
 
         // 用于同步父组件
         parentModelKey: String, // v-model like, 用于同步父组件model, 传进字符串作为key
+        mode: {
+            type: String,
+            default: 'remote'
+        },
+
+        // 本地补全待比较池
+        store: {
+            type: Array
+        },
+        /**
+         * @param {String} target1 比较目标1,即输入值
+         * @param {String} target2 比较目标2,即比较池中的item
+         * @return {Number} result 比较结果,返回相似度,越小说明越接近
+         */
+        comparer: Function,
+        // 是否聚焦
 
         // ajax请求地址
         url: {
@@ -656,6 +1541,15 @@ exports.default = {
             type: String,
             default: 'word'
         },
+        // 可传入解析器,不传则用内置的getDeepData
+        dataParser: Function,
+        // 数据层级获取目标,由于每个api设计的返回结果的数据结构不一定一样,所以要求强制设置!default仅仅是个示例
+        target: {
+            type: String,
+            required: true,
+            default: 'data.list'
+        },
+
         // 请求limit的key名，有默认值，可配置
         limitKey: {
             type: String,
@@ -665,14 +1559,6 @@ exports.default = {
         limit: {
             type: String,
             default: ''
-        },
-        // 可传入解析器,不传则用内置的getDeepData
-        dataParser: Function,
-        // 数据层级获取目标,由于每个api设计的返回结果的数据结构不一定一样,所以要求强制设置!default仅仅是个示例
-        target: {
-            type: String,
-            required: true,
-            default: 'data.list'
         },
         // 数据的锚点，即ajax返回的的每一个item中你需要取出来展示的特定key
         anchor: {
@@ -693,6 +1579,7 @@ exports.default = {
             json: function json(data) {
                 return JSON.parse((0, _stringify2.default)(data));
             },
+
             showNoContentTip: false,
             focusListIndex: "" // focus的item游标
         };
@@ -711,20 +1598,133 @@ exports.default = {
         autofocus: function autofocus(val) {
             this.focusInput();
         },
-
         vm: function vm(val, old) {
             // CORE: Sync parent model with this.vm
             return this.$parent.$data[this.parentModelKey] = val;
         }
     },
+    components: {
+        vcEasyclearinput: _Easyclearinput2.default
+    },
     methods: {
+        /**
+         * @param {String} a 比较目标1(item)
+         * @param {String} b 比较目标2(one of compare-store item)
+         * return {Number} 编辑距离 
+         */
+        editDistance: function editDistance(a, b) {
+            if (a.indexOf(b) > -1 || b.indexOf(a) > -1) {
+                return -1;
+            }
+            var al = a.length + 1;
+            var bl = b.length + 1;
+            var result = [];
+            var temp = 0;
+            var i = void 0,
+                j = void 0
+
+            // 创建一个二维数组
+            ;for (i = 0; i < al; result[i] = [i++]) {}
+            for (i = 0; i < bl; result[0][i] = i++) {}
+
+            for (i = 1; i < al; i++) {
+                for (j = 1; j < bl; j++) {
+                    // 判断最上方和最左方数字是否相等
+                    temp = a[i - 1] == b[j - 1] ? 0 : 1;
+                    // result[i - 1][j] + 1 左方数字
+                    // result[i][j - 1] + 1 上方数字
+                    // result[i - 1][j - 1] + temp 左上方数字
+                    result[i][j] = Math.min(result[i - 1][j] + 1, result[i][j - 1] + 1, result[i - 1][j - 1] + temp);
+                }
+            }
+
+            return result[i - 1][j - 1];
+        },
+        fetchLocal: function fetchLocal(inputVal, storeArr) {
+            var comparer = comparer || this.editDistance;
+            var s = storeArr || this.store;
+            var ret = [];
+            for (var i = 0, len = s.length; i < len; i++) {
+                var obj = {};
+                obj[this.anchor] = s[i]; // since `anchor` prop is required
+                obj['distance'] = comparer(inputVal, s[i]);
+                ret.push(obj);
+            }
+            ret.sort(function (item, nextItem) {
+                return item['distance'] > nextItem['distance'];
+            });
+            this.jsonList = ret;
+        },
+        fetchRemote: function fetchRemote(inputVal) {
+            var _this = this;
+
+            if (this.url != null) {
+                (function () {
+                    var msg = {
+                        action: 'beforeAjax',
+                        data: inputVal
+                    };
+                    _this.$dispatch(COMPONENT_NS, msg, _this.name);
+
+                    var xhr = new XMLHttpRequest();
+
+                    var limit = void 0;
+                    if (_this.limit !== '') {
+                        _this.limit = parseFloat(_this.limit);
+                        limit = _this.limit !== "" ? '&' + _this.limitKey + '=' + _this.limit : '';
+                    } else {
+                        limit = '';
+                    }
+
+                    var fullUrl = _this.url + '?' + _this.param + '=' + inputVal + limit; // baseUrl + 请求参数 + 实时输入值 + limitQuery 
+                    xhr.open('GET', fullUrl);
+                    xhr.send(null);
+
+                    xhr.addEventListener('progress', function (data) {
+                        if (data.lengthComputable) {
+                            var _msg = {
+                                action: 'xhrProgress',
+                                data: data
+                            };
+                            _this.$dispatch(COMPONENT_NS, _msg, _this.name);
+                        }
+                    });
+
+                    xhr.addEventListener('loadend', function (data) {
+                        var json = JSON.parse(xhr.responseText);
+                        // 有解析器就用，没有就用内置解析器
+                        if (_this.dataParser) {
+                            json = _this.dataParser(json);
+                        } else {
+                            json = _this.getDeepData(json, _this.target);
+                        }
+
+                        var msg = {
+                            action: 'xhrLoaded',
+                            data: json
+                        };
+                        _this.$dispatch(COMPONENT_NS, msg, _this.name);
+                        _this.jsonList = json;
+                        if (json == null || json.length < 1) {
+                            _this.showNoContentTip = true;
+                        } else {
+                            _this.showNoContentTip = false;
+                        }
+                    });
+
+                    xhr.addEventListener('error', function (err) {
+                        console.error(err);
+                    });
+                })();
+            }
+        },
         focusInput: function focusInput() {
             this.$els.input && this.$els.input.focus();
         },
-
         clear: function clear() {
             this.vm = '';
         },
+
         // 并不是每个api返回的结构、层级都是一样的，需要接受传参配置，然后递归解析
         getDeepData: function getDeepData(data, target) {
             var levels = target.split('.');
@@ -734,20 +1734,23 @@ exports.default = {
 
             return data;
         },
-        // domEvent => @input
-        input: function input(val) {
+
+        // DOMEvent => @input
+        input: function input() {
+            var val = this.vm;
             this.showList = true;
 
             var msg = {
                 action: 'input',
                 data: val
             };
-            this.$dispatch('AUTOCOMPLETE', msg, this.name);
+            this.$dispatch(COMPONENT_NS, msg, this.name);
             this.$emit('fetchData', val);
 
             return this.$parent.$data[this.parentModelKey] = val;
         },
-        // domEvent => @dblclick
+
+        // DOMEvent => @dblclick
         showAll: function showAll() {
             this.jsonList = [];
             this.$emit('fetchData');
@@ -756,31 +1759,33 @@ exports.default = {
                 action: 'show',
                 data: null
             };
-            this.$dispatch('AUTOCOMPLETE', msg, this.name);
+            this.$dispatch(COMPONENT_NS, msg, this.name);
 
             this.showList = true;
         },
-        // domEvent => @blur
+
+        // DOMEvent => @blur
         hideAll: function hideAll(e) {
-            var self = this;
+            var _this2 = this;
 
             var msg = {
                 action: 'blur',
                 data: e
             };
-            this.$dispatch('AUTOCOMPLETE', msg, this.name);
+            this.$dispatch(COMPONENT_NS, msg, this.name);
 
             setTimeout(function () {
-                self.showList = false;
+                _this2.showList = false;
 
                 var msg = {
                     action: 'hide',
                     data: null
                 };
-                self.$dispatch('AUTOCOMPLETE', msg, self.name);
+                _this2.$dispatch(COMPONENT_NS, msg, _this2.name);
             }, 250);
         },
-        // domEvent => @focus
+
+        // DOMEvent => @focus
         focus: function focus(e) {
             this.focusListIndex = 0;
 
@@ -788,13 +1793,15 @@ exports.default = {
                 action: 'focus',
                 data: e
             };
-            this.$dispatch('AUTOCOMPLETE', msg, this.name);
+            this.$dispatch(COMPONENT_NS, msg, this.name);
         },
-        // domEvent => @mousemove
+
+        // DOMEvent => @mousemove
         mousemove: function mousemove(i) {
             this.focusListIndex = i;
         },
-        // domEvent => @keydown
+
+        // DOMEvent => @keydown
         keydown: function keydown(e) {
             var key = e.keyCode;
 
@@ -825,6 +1832,7 @@ exports.default = {
             var listLength = this.jsonList && this.jsonList.length - 1;
             this.focusListIndex = this.focusListIndex > listLength ? 0 : this.focusListIndex < 0 ? listLength : this.focusListIndex;
         },
+
         // for active in all condition
         activeClass: function activeClass(i) {
             return {
@@ -834,7 +1842,7 @@ exports.default = {
     }, // end of methods
     events: {
         selectList: function selectList(data) {
-            var data = this.json(data);
+            data = this.json(data);
 
             // Put the selected data to vm(v-model) 
             this.vm = data[this.anchor];
@@ -844,64 +1852,16 @@ exports.default = {
                 action: 'selected',
                 data: data
             };
-            this.$dispatch('AUTOCOMPLETE', msg, this.name);
+            this.$dispatch(COMPONENT_NS, msg, this.name);
         },
         fetchData: function fetchData(inputVal) {
-            if (!inputVal) return;
-            var self = this;
-
-            if (this.url != null) {
-                var msg = {
-                    action: 'beforeAjax',
-                    data: inputVal
-                };
-                this.$dispatch('AUTOCOMPLETE', msg, self.name);
-
-                var ajax = new XMLHttpRequest();
-
-                var limit;
-                if (this.$get('limit') !== '') {
-                    this.limit = parseFloat(this.limit);
-                    limit = this.limit !== "" ? '&' + this.limitKey + '=' + this.limit : '';
-                } else {
-                    limit = '';
-                }
-
-                var fullUrl = this.url + '?' + this.param + '=' + inputVal + limit; // baseUrl + 请求参数 + 实时输入值 + limitQuery 
-                ajax.open('GET', fullUrl);
-                ajax.send(null);
-
-                ajax.addEventListener('progress', function (data) {
-                    if (data.lengthComputable) {
-                        var msg = {
-                            action: 'ajaxProgress',
-                            data: data
-                        };
-                        self.$dispatch('AUTOCOMPLETE', msg, self.name);
-                    }
-                });
-
-                ajax.addEventListener('loadend', function (data) {
-                    var json = JSON.parse(this.responseText);
-                    // 有解析器就用，没有就用内置解析器
-                    if (self.dataParser) {
-                        json = self.dataParser(json);
-                    } else {
-                        json = self.getDeepData(json, self.target);
-                    }
-
-                    var msg = {
-                        action: 'ajaxLoaded',
-                        data: json
-                    };
-                    self.$dispatch('AUTOCOMPLETE', msg, this.name);
-                    self.jsonList = json;
-                    if (json == null || json.length < 1) {
-                        self.showNoContentTip = true;
-                    } else {
-                        self.showNoContentTip = false;
-                    }
-                });
+            if (inputVal == null || inputVal === '') return;
+            if (this.mode === 'remote') {
+                this.fetchRemote(inputVal);
+            } else if (this.mode === 'local') {
+                this.fetchLocal(inputVal);
+            } else {
+                console.warn('maybe no this mode!');
             }
         }
     } // end of events
@@ -909,13 +1869,38 @@ exports.default = {
 // </script>
 
 /***/ },
-/* 11 */
+/* 54 */
+/***/ function(module, exports, __webpack_require__) {
+
+__webpack_require__(15)
+module.exports = __webpack_require__(52)
+
+if (module.exports.__esModule) module.exports = module.exports.default
+;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(18)
+if (false) {
+(function () {
+var hotAPI = require("vue-hot-reload-api")
+hotAPI.install(require("vue"))
+if (!hotAPI.compatible) return
+var id = "-!babel!./../../../.7.1.7@vue-loader/lib/selector.js?type=script&index=0!./Easyclearinput.vue"
+hotAPI.createRecord(id, module.exports)
+module.hot.accept(["-!babel!./../../../.7.1.7@vue-loader/lib/selector.js?type=script&index=0!./Easyclearinput.vue","-!vue-html-loader!./../../../.7.1.7@vue-loader/lib/selector.js?type=template&index=0!./Easyclearinput.vue"], function () {
+var newOptions = require("-!babel!./../../../.7.1.7@vue-loader/lib/selector.js?type=script&index=0!./Easyclearinput.vue")
+if (newOptions && newOptions.__esModule) newOptions = newOptions.default
+var newTemplate = require("-!vue-html-loader!./../../../.7.1.7@vue-loader/lib/selector.js?type=template&index=0!./Easyclearinput.vue")
+hotAPI.update(id, newOptions, newTemplate)
+})
+})()
+}
+
+/***/ },
+/* 55 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
 'use strict';
 
-var _Autocomplete = __webpack_require__(1);
+var _Autocomplete = __webpack_require__(13);
 
 var _Autocomplete2 = _interopRequireDefault(_Autocomplete);
 

@@ -1,8 +1,8 @@
 {
   "author": "indexxuan@gmail.com",
   "name": "vc-autocomplete",
-  "version": "0.2.1",
-  "description": "a select component based on vue.js & bootstrap",
+  "version": "0.2.9",
+  "description": "autocomplete(local & remote) component based on vue.js & bootstrap",
   "scripts": {
     "start": "webpack-dev-server --inline --hot --quiet",
     "build:dev": " webpack --progress --hide-modules --config webpack.config.js",
@@ -15,17 +15,24 @@
   },
   "main": "dist/build.js",
   "repository": {
-      "type": "git",
-      "url": "git+https://github.com/iwaimai-bi-fe/vc-autocomplete.git"
+    "type": "git",
+    "url": "git+https://github.com/iwaimai-bi-fe/vc-autocomplete.git"
   },
   "homepage": "https://github.com/iwaimai-bi-fe/vc-autocomplete#readme",
   "bugs": {
-      "url": "https://github.com/iwaimai-bi-fe/vc-autocomplete/issues"
+    "url": "https://github.com/iwaimai-bi-fe/vc-autocomplete/issues"
   },
   "dependencies": {
+    "vc-easyclearinput": "^0.2.4",
     "vue": "^1.0.24"
   },
-  "keywords": ["autocomplete", "sug", "component", "vue", "bootstrap"],
+  "keywords": [
+    "autocomplete",
+    "sug",
+    "component",
+    "vue",
+    "bootstrap"
+  ],
   "devDependencies": {
     "babel-core": "^6.1.21",
     "babel-loader": "^6.1.0",
@@ -44,9 +51,10 @@
     "webpack-dev-server": "^1.12.0"
   },
   "files": [
-      "dist/build.js",
-      "dist/build.js.map",
-      "dist/build.min.js"
+    "src",
+    "dist/build.js",
+    "dist/build.js.map",
+    "dist/build.min.js"
   ],
   "license": "MIT"
 }

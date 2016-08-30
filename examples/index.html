@@ -21,6 +21,10 @@
         .container label {
             font-weight: normal;
         }
+        .btn {
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
@@ -29,13 +33,19 @@
 
 	<div id="app" class="container">
 
-        <div class="form-group">本例子数据已经经过dataParser自定义方法解析截取</div>
+        <div class="text-center">远程请求数据已经过dataParser自定义方法解析取</div>
+        <div class="text-center">本地补全库如下，请尝试输入</div>
+
+        <button class="btn btn-warning" @click="remote">远程请求(github API)</button>
+        <button class="btn btn-danger" @click="local">本地补全模式</button>
 
         <vc-autocomplete
+            v-if="mode === 'remote'"
+            :label="mode"
+            :mode="mode"
             :id="id"
             :name="name"
             :autofocus="autofocus"
-            :label="label"
             :placeholder="placeholder"
             :url="url"
             :param="queryBase"
@@ -46,9 +56,38 @@
         >
         </vc-autocomplete>
 
+        <vc-autocomplete
+            v-if="mode === 'local'"
+            :mode="mode"
+            :label="mode"
+            :id="id"
+            :name="name"
+            :autofocus="autofocus"
+            :placeholder="placeholder"
+            :url="url"
+            :param="queryBase"
+            :target="target"
+            :anchor="anchor"
+            :data-parser="parser"
+            :parent-model-key="parentModelKey"
+            :store="store"
+        >
+        </vc-autocomplete>
+
         <div class="form-group">
             <label>配置组件的label属性</label>
             <input type="text" class="form-control" placeholder="label" v-model="label" />
+        </div>
+
+        <div class="form-group">
+            <label>配置组件的本地补全store, (逗号分割)</label>
+            <textarea v-model="storeStr" class="form-control" style="height: 200px;"></textarea>
+        </div>
+
+        <div class="form-group">
+            <div>补全组件模式 - 默认: remote</div>
+            <label><input type="radio" value="remote" name="mode" v-model="mode">远程补全</label>
+            <label><input type="radio" value="local" name="mode" v-model="mode">本地补全</label>
         </div>
 
         <div class="form-group">

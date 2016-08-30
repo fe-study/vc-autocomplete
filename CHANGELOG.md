@@ -1,5 +1,14 @@
 <h1 align="center">vc-autocomplete- @changelog</h1>
 
+## 0.2.9
+
+`2016-08-29`
+
+- 新增本地补全功能，新增 `store`, `mode`, `comparer` 属性
+- 内置最短编辑路径算法作为默认本地补全比较器
+- 内置输入框升级为 `vc-easyclearinput` 组件，更好的输入体验(但打包代码变大)
+- es6化，整理代码，完善demo
+
 ## 0.2.1
 
 `2016-0824`

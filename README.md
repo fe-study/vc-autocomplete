@@ -19,13 +19,6 @@
 
 ## Dev
 
-* dev
-
-```node
-npm run dev
-
-```
-
 * build
 
 ```node
@@ -50,13 +43,27 @@ npm run build:prod
 * build example
 
 ```node
-npm run example
+npm run build:example
 ```
 
 * run server
 
 ```node
 npm run start
+```
+
+* dev component
+
+```node
+npm run dev
+
+```
+
+* dev example 
+
+```node
+npm run example 
+
 ```
 
 * publish 
