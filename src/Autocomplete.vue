@@ -19,7 +19,7 @@
         <vc-easyclearinput
             :name="name"
             type="text"
-            :value.sync="vm"
+            :value.sync="shownValue"
             :placeholder="placeholder"
             :label="label"
             @input="input | debounce 300"
@@ -157,13 +157,14 @@
 <script>
 const COMPONENT_NS = 'AUTOCOMPLETE'
 
-import vcEasyclearinput from 'vc-easyclearinput/src/components/Easyclearinput'
+import vcEasyclearinput from '../../vc-easyclearinput/src/Easyclearinput.vue'
 
 export default {
+    name: 'vc-autocomplete',
     props: {
         // name for unique component identity, also as input dom's name attr
         name: String,
-        // 比较模式
+        // 是否聚焦
         autofocus: {
             type: Boolean,
             default: false 
@@ -176,6 +177,8 @@ export default {
 
         // 用于同步父组件
         parentModelKey: String, // v-model like, 用于同步父组件model, 传进字符串作为key
+
+        // 比较模式
         mode: {
             type: String,
             default: 'remote'
@@ -191,7 +194,6 @@ export default {
          * @return {Number} result 比较结果,返回相似度,越小说明越接近
          */
         comparer: Function,
-        // 是否聚焦
 
         // ajax请求地址
         url: {
@@ -235,7 +237,9 @@ export default {
     }, // end of props
     data () {
         return {
-            vm: "", // 输入值
+            shownValue: '', // 显示值 
+            inputValue: "", // 输入值
+            vm: '', // 用户下拉选择的item(一般为Object)
             showList: false, // 是否显示下拉结果列表
             jsonList: [], // ajax的返回值的解析后的json列表
             json (data) {
@@ -247,6 +251,7 @@ export default {
     },
     created () {
         // sync parent model with $data.type
+        this.shownValue = this.$parent.$data[this.parentModelKey]
         this.vm = this.$parent.$data[this.parentModelKey]
     },
     ready () {
@@ -361,6 +366,8 @@ export default {
                     }
                     this.$dispatch(COMPONENT_NS, msg, this.name)
                     this.jsonList = json
+                    // patch 1021: 执行到这里说明用户输入了，应清除上次的vm，等待用户的新选择
+                    this.vm = null
                     if (json == null || json.length < 1) {
                         this.showNoContentTip = true
                     } else {
@@ -377,7 +384,8 @@ export default {
             this.$els.input && this.$els.input.focus()
         },
         clear () {
-            this.vm = ''
+            this.shownValue = ''
+            this.vm = null
         },
         // 并不是每个api返回的结构、层级都是一样的，需要接受传参配置，然后递归解析
         getDeepData (data, target) {
@@ -390,7 +398,8 @@ export default {
         },
         // DOMEvent => @input
         input () {
-            let val = this.vm
+            let val = this.shownValue
+            this.inputValue = this.shownValue
             this.showList = true
 
             let msg = {
@@ -487,7 +496,8 @@ export default {
             data = this.json(data)
 
             // Put the selected data to vm(v-model) 
-            this.vm = data[this.anchor]
+            this.vm = data
+            this.shownValue = data[this.anchor]
             this.showList = false
 
             let msg = {

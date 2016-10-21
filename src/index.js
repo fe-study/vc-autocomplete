@@ -1,3 +1,4 @@
-import vcAutocomplete from './components/Autocomplete'
+import vcAutocomplete from './Autocomplete'
 
-module.exports = vcAutocomplete
+export default vcAutocomplete
+export { vcAutocomplete }

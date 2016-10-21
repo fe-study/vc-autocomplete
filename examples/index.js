@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import vcAutocomplete from '../dist/build.js'
+import vcAutocomplete from '../src'
 
 new Vue({
 	el: '#app',

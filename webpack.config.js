@@ -3,7 +3,7 @@ var path = require('path')
 var name = require('./package.json').name.replace(/-(\w)/g, function (match) { return match.slice(1).toUpperCase() } )
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/main.js',
   output: {
     path: './dist',
     publicPath: '/',

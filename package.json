@@ -1,7 +1,7 @@
 {
   "author": "indexxuan@gmail.com",
   "name": "vc-autocomplete",
-  "version": "0.2.9",
+  "version": "0.3.0",
   "description": "autocomplete(local & remote) component based on vue.js & bootstrap",
   "scripts": {
     "start": "webpack-dev-server --inline --hot --quiet",
@@ -22,17 +22,12 @@
   "bugs": {
     "url": "https://github.com/iwaimai-bi-fe/vc-autocomplete/issues"
   },
+  "keywords": ["autocomplete", "sug", "component", "vue", "bootstrap"],
   "dependencies": {
+    "bootstrap": "^3.3.5",
     "vc-easyclearinput": "^0.2.4",
     "vue": "^1.0.24"
   },
-  "keywords": [
-    "autocomplete",
-    "sug",
-    "component",
-    "vue",
-    "bootstrap"
-  ],
   "devDependencies": {
     "babel-core": "^6.1.21",
     "babel-loader": "^6.1.0",
