@@ -532,10 +532,10 @@ module.exports = function(it){
 /***/ function(module, exports, __webpack_require__) {
 
 __webpack_require__(14)
-module.exports = __webpack_require__(53)
+module.exports = __webpack_require__(52)
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(19)
+;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(18)
 if (false) {
 (function () {
 var hotAPI = require("vue-hot-reload-api")
@@ -594,8 +594,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!./../../../.0.21.0@css-loader/index.js!./../../../.7.1.7@vue-loader/lib/style-rewriter.js?id=_v-2b8bb4be&file=Easyclearinput.vue!./../../../.2.2.3@less-loader/index.js!./../../../.7.1.7@vue-loader/lib/selector.js?type=style&index=0!./Easyclearinput.vue", function() {
-			var newContent = require("!!./../../../.0.21.0@css-loader/index.js!./../../../.7.1.7@vue-loader/lib/style-rewriter.js?id=_v-2b8bb4be&file=Easyclearinput.vue!./../../../.2.2.3@less-loader/index.js!./../../../.7.1.7@vue-loader/lib/selector.js?type=style&index=0!./Easyclearinput.vue");
+		module.hot.accept("!!./../../node_modules/.0.21.0@css-loader/index.js!./../../node_modules/.7.1.7@vue-loader/lib/style-rewriter.js?id=_v-0d270100&file=Easyclearinput.vue!./../../node_modules/.2.2.3@less-loader/index.js!./../../node_modules/.7.1.7@vue-loader/lib/selector.js?type=style&index=0!./Easyclearinput.vue", function() {
+			var newContent = require("!!./../../node_modules/.0.21.0@css-loader/index.js!./../../node_modules/.7.1.7@vue-loader/lib/style-rewriter.js?id=_v-0d270100&file=Easyclearinput.vue!./../../node_modules/.2.2.3@less-loader/index.js!./../../node_modules/.7.1.7@vue-loader/lib/selector.js?type=style&index=0!./Easyclearinput.vue");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -627,7 +627,7 @@ exports = module.exports = __webpack_require__(8)();
 
 
 // module
-exports.push([module.i, ".vc-easyclearinput-component .label-item {\n  font-weight: normal;\n  margin-right: 5px;\n  display: table;\n  vertical-align: bottom;\n  float: left;\n  height: 34px;\n  line-height: 34px;\n}\n.vc-easyclearinput-component .glyphicon {\n  z-index: 9;\n}\n.vc-easyclearinput-component .input-box {\n  display: table;\n  position: relative;\n}\n.vc-easyclearinput-component .input-box .form-control {\n  width: 100%;\n}\n.vc-easyclearinput-component .input-box:hover .clear-it {\n  visibility: visible;\n}\n.vc-easyclearinput-component .input-box .clear-it {\n  visibility: hidden;\n  position: absolute;\n  top: 50%;\n  right: 6px;\n  -webkit-transform: translateY(-50%);\n  transform: translateY(-50%);\n  opacity: .3;\n}\n.vc-easyclearinput-component .input-box .clear-it.has-icon {\n  right: 28px;\n}\n.vc-easyclearinput-component .info-text {\n  position: absolute;\n  top: -22px;\n}\n.vc-easyclearinput-component .info-text.with-success {\n  color: #87d068;\n}\n.vc-easyclearinput-component .info-text.with-warning {\n  color: #fa0;\n}\n.vc-easyclearinput-component .info-text.with-error {\n  color: #f50;\n}\n", ""]);
+exports.push([module.i, ".vc-easyclearinput-component .label-item {\n  font-weight: normal;\n  display: table;\n  vertical-align: bottom;\n  float: left;\n  height: 34px;\n  line-height: 34px;\n}\n.vc-easyclearinput-component textarea.form-control {\n  resize: vertical;\n}\n.vc-easyclearinput-component .glyphicon {\n  z-index: 9;\n}\n.vc-easyclearinput-component .input-box {\n  display: table;\n  position: relative;\n}\n.vc-easyclearinput-component .input-box .form-control {\n  width: 100%;\n  border-radius: 4px!important;\n}\n.vc-easyclearinput-component .input-box .form-control.slot-before {\n  border-top-left-radius: 0!important;\n  border-bottom-left-radius: 0!important;\n}\n.vc-easyclearinput-component .input-box .form-control.slot-after {\n  border-top-right-radius: 0!important;\n  border-bottom-right-radius: 0!important;\n}\n.vc-easyclearinput-component .input-box:hover .clear-it {\n  visibility: visible;\n}\n.vc-easyclearinput-component .input-box .clear-it {\n  visibility: hidden;\n  position: absolute;\n  top: 50%;\n  right: 6px;\n  -webkit-transform: translateY(-50%);\n  transform: translateY(-50%);\n  opacity: .3;\n}\n.vc-easyclearinput-component .input-box .clear-it.has-icon {\n  right: 28px;\n}\n.vc-easyclearinput-component .info-text {\n  position: absolute;\n  top: -22px;\n}\n.vc-easyclearinput-component .info-text.with-success {\n  color: #87d068;\n}\n.vc-easyclearinput-component .info-text.with-warning {\n  color: #fa0;\n}\n.vc-easyclearinput-component .info-text.with-error {\n  color: #f50;\n}\n", ""]);
 
 // exports
 
@@ -636,13 +636,13 @@ exports.push([module.i, ".vc-easyclearinput-component .label-item {\n  font-weig
 /* 18 */
 /***/ function(module, exports) {
 
-module.exports = "<div class=\"vc-easyclearinput-component form-group\" :class=\"[statusClass, { 'has-feedback': icon }]\" :style=\"{ 'width': optionalWidth }\">\n        <label class=\"label-item\">{{ label }}&nbsp;:</label>\n        <div :class=\"{ 'input-box': true, 'input-group': hasSlot }\">\n            <slot name=\"input-before\"></slot>\n            <span v-if=\"!hasSlot\" style=\"width: 1%;display: table-cell\">&nbsp;</span><!-- 占位元素，用于撑开宽度，原因未知 -->\n            <span v-if=\"icon\" class=\"glyphicon form-control-feedback\" :class=\"iconClass\" aria-hidden=\"true\"></span>\n            <span @click=\"handleClear\" class=\"clear-it glyphicon glyphicon-remove-circle\" :class=\"{ 'has-icon': icon, 'hide': disabled || readOnly }\" aria-hidden=\"true\"></span>\n            <div class=\"info-text\" :class=\"infoTextClass\">{{ infoText }}</div>\n            <input class=\"form-control\"\n                v-el:input\n                :type=\"type\"\n                :disabled=\"disabled\"\n                :readOnly=\"readOnly\"\n                v-model=\"value\"\n                :placeholder=\"placeholder\"\n                @focus=\"handleFocus\"\n                @blur=\"handleBlur\"\n            />\n        </div>\n    </div>";
+module.exports = "<div class=\"vc-autocomplete-component form-group\">\n        <!--\n        <label class=\"\">{{ label }}</label>\n        <div class=\"input-box\">\n            <input type=\"text\" class=\"form-control\" autocomplete=\"off\"\n                v-el:input\n                :name=\"name\"\n                :placeholder=\"placeholder\"\n                v-model=\"vm\"\n                @input=\"input(vm)\"\n                @blur=\"hideAll\"\n                @keydown=\"keydown\"\n                @focus=\"focus\"\n            />\n            <span class=\"clear-it glyphicon glyphicon-remove-circle\" aria-hidden=\"true\" @click=\"clear()\"></span>\n        </div>\n        -->\n        <vc-easyclearinput\n            :name=\"name\"\n            type=\"text\"\n            :value.sync=\"shownValue\"\n            :placeholder=\"placeholder\"\n            :label=\"label\"\n            @input=\"input | debounce 300\"\n            :on-blur=\"handleBlur\"\n            :on-focus=\"handleFocus\"\n            @keydown=\"keydown\"\n            :on-clear=\"clear\"\n        >\n        </vc-easyclearinput>\n        <div class=\"autocomplete transition autocomplete-{{ name }}\" id=\"autocomplete-{{ name }}\" v-show=\"showList\"> \n            <ul v-if=\"jsonList && jsonList.length > 0\" class=\"dropdown-menu\"> \n                <li v-for=\"data in jsonList\" transition=\"showAll\" :class=\"activeClass($index)\"> \n                    <a href=\"#\" @click.prevent=\"$emit('selectList',data)\" @mousemove=\"mousemove($index)\">\n                        <span class=\"vc-autocomplete-item\">{{ data[anchor] }} {{ data[anchorPlus] }}</span>\n                    </a> \n                </li>\n            </ul> \n            <ul class=\"dropdown-menu\" v-if=\"showNoContentTip\" style=\"text-align: center;padding: 10px;\">没有匹配的{{ label }}数据</ul>\n        </div>\n    </div>";
 
 /***/ },
 /* 19 */
 /***/ function(module, exports) {
 
-module.exports = "<div class=\"vc-autocomplete-component form-group\">\n        <!--\n        <label class=\"\">{{ label }}</label>\n        <div class=\"input-box\">\n            <input type=\"text\" class=\"form-control\" autocomplete=\"off\"\n                v-el:input\n                :name=\"name\"\n                :placeholder=\"placeholder\"\n                v-model=\"vm\"\n                @input=\"input(vm)\"\n                @blur=\"hideAll\"\n                @keydown=\"keydown\"\n                @focus=\"focus\"\n            />\n            <span class=\"clear-it glyphicon glyphicon-remove-circle\" aria-hidden=\"true\" @click=\"clear()\"></span>\n        </div>\n        -->\n        <vc-easyclearinput\n            :name=\"name\"\n            type=\"text\"\n            :value.sync=\"vm\"\n            :placeholder=\"placeholder\"\n            :label=\"label\"\n            @input=\"input | debounce 300\"\n            :on-blur=\"hideAll\"\n            :on-focus=\"focus\"\n            @keydown=\"keydown\"\n        >\n        </vc-easyclearinput>\n        <div class=\"autocomplete transition autocomplete-{{ name }}\" id=\"autocomplete-{{ name }}\" v-show=\"showList\"> \n            <ul v-if=\"jsonList && jsonList.length > 0\" class=\"dropdown-menu\"> \n                <li v-for=\"data in jsonList\" transition=\"showAll\" :class=\"activeClass($index)\"> \n                    <a href=\"#\" @click.prevent=\"$emit('selectList',data)\" @mousemove=\"mousemove($index)\">\n                        <span class=\"vc-autocomplete-item\">{{ data[anchor] }} {{ data[anchorPlus] }}</span>\n                    </a> \n                </li>\n            </ul> \n            <ul class=\"dropdown-menu\" v-if=\"showNoContentTip\" style=\"text-align: center;padding: 10px;\">没有匹配的{{ label }}数据</ul>\n        </div>\n    </div>";
+module.exports = "<div class=\"vc-easyclearinput-component form-group\" :class=\"[statusClass, { 'has-feedback': icon }]\" :style=\"{ 'width': optionalWidth }\">\n        <label class=\"label-item\">{{ label }}</label>\n        <div class=\"info-text\" :class=\"infoTextClass\">{{ infoText }}</div>\n        <div :class=\"{ 'input-box': true, 'input-group': (slotBefore || slotAfter)}\">\n            <slot name=\"input-before\"></slot>\n            <span v-if=\"!slot-before || !slot-after\" style=\"width: 1%;display: table-cell\">&nbsp;</span><!-- 占位元素，用于撑开宽度，原因未知 -->\n            <span v-if=\"icon\" class=\"glyphicon form-control-feedback\" :class=\"iconClass\" aria-hidden=\"true\"></span>\n            <span @click=\"handleClear\" class=\"clear-it glyphicon glyphicon-remove-circle\" :class=\"{ 'has-icon': icon, 'hide': hideClearIcon, 'slot-after': slotAfter }\" aria-hidden=\"true\"></span>\n            <input class=\"form-control\"\n                :class=\"[ 'form-control', slotBefore ? 'slot-before' : '', slotAfter ? 'slot-after' : '' ]\"\n                v-if=\"type !== 'textarea'\"\n                v-el:input\n                :type=\"type\"\n                :disabled=\"disabled\"\n                :readonly=\"readonly\"\n                v-model=\"value\"\n                :placeholder=\"placeholder\"\n                @focus=\"handleFocus\"\n                @blur=\"handleBlur\"\n            />\n            <textarea \n                v-if=\"type === 'textarea'\"\n                class=\"form-control\"\n                v-el:input\n                :type=\"type\"\n                :disabled=\"disabled\"\n                :readonly=\"readonly\"\n                v-model=\"value\"\n                :placeholder=\"placeholder\"\n                @focus=\"handleFocus\"\n                @blur=\"handleBlur\"\n            >\n            </textarea>\n            <slot name=\"input-after\"></slot>\n        </div>\n    </div>";
 
 /***/ },
 /* 20 */
@@ -1036,298 +1036,6 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _keys = __webpack_require__(51);
-
-var _keys2 = _interopRequireDefault(_keys);
-
-var _isInteger = __webpack_require__(50);
-
-var _isInteger2 = _interopRequireDefault(_isInteger);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-// <template>
-//     <div class="vc-easyclearinput-component form-group" :class="[statusClass, { 'has-feedback': icon }]" :style="{ 'width': optionalWidth }">
-//         <label class="label-item">{{ label }}&nbsp;:</label>
-//         <div :class="{ 'input-box': true, 'input-group': hasSlot }">
-//             <slot name="input-before"></slot>
-//             <span v-if="!hasSlot" style="width: 1%;display: table-cell">&nbsp;</span><!-- 占位元素，用于撑开宽度，原因未知 -->
-//             <span v-if="icon" class="glyphicon form-control-feedback" :class="iconClass" aria-hidden="true"></span>
-//             <span @click="handleClear" class="clear-it glyphicon glyphicon-remove-circle" :class="{ 'has-icon': icon, 'hide': disabled || readOnly }" aria-hidden="true"></span>
-//             <div class="info-text" :class="infoTextClass">{{ infoText }}</div>
-//             <input class="form-control"
-//                 v-el:input
-//                 :type="type"
-//                 :disabled="disabled"
-//                 :readOnly="readOnly"
-//                 v-model="value"
-//                 :placeholder="placeholder"
-//                 @focus="handleFocus"
-//                 @blur="handleBlur"
-//             />
-//         </div>
-//     </div>
-// </template>
-
-// <style lang="less">
-// // container
-// .vc-easyclearinput-component {
-
-//     .label-item {
-//         font-weight: normal;
-//         margin-right: 5px;
-//         display: table;
-//         vertical-align: bottom;
-//         float: left;
-//         height: 34px;
-//         line-height: 34px;
-//     }
-
-//     .glyphicon {
-//         z-index: 9;
-//     }
-
-//     .input-box {
-//         display: table;
-//         position: relative;
-
-//         .form-control {
-//             width: 100%;
-//         }
-//         &:hover {
-//             .clear-it {
-//                 visibility: visible;
-//             }
-//         }
-
-//         .clear-it {
-//             visibility: hidden;
-//             position: absolute;
-//             top: 50%;
-//             right: 6px;
-//             // css3 it more flexible
-//             -webkit-transform: translateY(-50%);
-//             transform: translateY(-50%);
-//             opacity: .3;
-
-//             &.has-icon {
-//                 right: 28px;
-//             }
-//         }
-//     }
-
-//     @success: #87d068;
-//     @warning: #fa0;
-//     @error: #f50;
-//     .info-text {
-//         position: absolute;
-//         top: -22px;
-
-//         &.with-success {
-//             color: @success;
-//         }
-//         &.with-warning {
-//             color: @warning;
-//         }
-//         &.with-error {
-//             color: @error;
-//         }
-//     }
-
-// } // end of container
-// </style>
-
-// <script>
-var EVENT_DELAY = 128;
-
-exports.default = {
-    props: {
-        name: {
-            type: String,
-            default: 'vc-easyclearinput' + Date.now()
-        },
-        type: {
-            type: String,
-            default: 'text'
-        },
-        value: {
-            twoWay: true
-        },
-        label: String,
-        placeholder: String,
-        infoText: {
-            type: String,
-            default: ''
-        },
-        disabled: {
-            type: Boolean,
-            default: false
-        },
-        readOnly: {
-            type: Boolean,
-            default: false
-        },
-        autofocus: {
-            type: Boolean,
-            default: false
-        },
-        width: {
-            type: [Number, String],
-            default: '250'
-        },
-        icon: {
-            type: Boolean,
-            default: false
-        },
-        status: {
-            type: String,
-            default: ''
-        },
-        onFocus: { // focus回调
-            type: Function,
-            default: function _default() {}
-        },
-        onBlur: { // blur回调
-            type: Function,
-            default: function _default() {}
-        },
-        onClear: { // onClear回调
-            type: Function,
-            default: function _default() {}
-        }
-    },
-    data: function data() {
-        return {
-            isClear: false,
-            hasSlot: true
-        };
-    },
-    created: function created() {},
-    ready: function ready() {
-        if (this.autofocus) {
-            this.focusInput();
-        }
-        // 检查是否有用户自定义slot传入(input-before)
-        this.checkSlot();
-        // 检查用户是否内联了不该内联的事件(focus & blur)
-        this.checkEvents();
-    },
-    computed: {
-        optionalWidth: function optionalWidth() {
-            if (this.width == null || this.width === '') {
-                return null;
-            }
-            if ((0, _isInteger2.default)(+this.width)) {
-                return this.width + 'px';
-            }
-            return this.width;
-        },
-        statusClass: function statusClass() {
-            return 'has-' + this.status;
-        },
-        infoTextClass: function infoTextClass() {
-            return 'with-' + this.status;
-        },
-        iconClass: function iconClass() {
-            if (this.status === 'success') {
-                return 'glyphicon-ok';
-            }
-            if (this.status === 'warning') {
-                return 'glyphicon-warning-sign';
-            }
-            if (this.status === 'error') {
-                return 'glyphicon-remove';
-            }
-        }
-    },
-    watch: {
-        autofocus: function autofocus(val) {
-            if (val) {
-                this.focusInput();
-            }
-        }
-    },
-    methods: {
-        checkSlot: function checkSlot() {
-            var keys = (0, _keys2.default)(this._slotContents);
-            this.hasSlot = keys.some(function (item, index) {
-                return item === 'input-before';
-            });
-        },
-        checkEvents: function checkEvents() {
-            var focus = this._events.focus;
-            if (focus && focus.length > 0) {
-                console.warn('if you want to listen on focus event, please use `:on-focus` callback!');
-            }
-            var blur = this._events.blur;
-            if (blur && blur.length > 0) {
-                console.warn('if you want to listen on blur event, please use `:on-blur` callback!');
-            }
-        },
-
-        /**
-         * 点击清除按钮
-         * 1. blur 2. clear 3.focus again
-         * 事件修正，使得小叉号成为类似系统原生的和input一体的控件，
-         * 点击小叉号不应该带来input的失焦还有相应事件的响应
-         */
-        focusInput: function focusInput() {
-            // 工具方法
-            this.$els.input && this.$els.input.focus();
-        },
-        handleBlur: function handleBlur(e) {
-            var _this = this;
-
-            // console.log(1)
-            setTimeout(function () {
-                if (!_this.isClear) {
-                    _this.onBlur(e);
-                } else {
-                    setTimeout(function () {
-                        _this.focusInput();
-                    }, 0);
-                }
-                // this.isClear = false
-            }, EVENT_DELAY);
-        },
-        handleClear: function handleClear() {
-            // console.log(2)
-            // 可编辑状态下
-            if (!this.disabled && !this.readOnly) {
-                this.isClear = true;
-                this.value = '';
-                this.onClear();
-                this.focusInput();
-            }
-        },
-        handleFocus: function handleFocus(e) {
-            var _this2 = this;
-
-            // console.log(3)
-            setTimeout(function () {
-                if (!_this2.isClear) {
-                    _this2.onFocus(e);
-                }
-                _this2.isClear = false;
-            }, EVENT_DELAY + 10);
-        }
-    },
-    beforeDestroy: function beforeDestroy() {},
-    destroy: function destroy() {}
-};
-// </script>
-
-/***/ },
-/* 53 */
-/***/ function(module, exports, __webpack_require__) {
-
-"use strict";
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
 var _stringify = __webpack_require__(49);
 
 var _stringify2 = _interopRequireDefault(_stringify);
@@ -1359,13 +1067,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //         <vc-easyclearinput
 //             :name="name"
 //             type="text"
-//             :value.sync="vm"
+//             :value.sync="shownValue"
 //             :placeholder="placeholder"
 //             :label="label"
 //             @input="input | debounce 300"
-//             :on-blur="hideAll"
-//             :on-focus="focus"
+//             :on-blur="handleBlur"
+//             :on-focus="handleFocus"
 //             @keydown="keydown"
+//             :on-clear="clear"
 //         >
 //         </vc-easyclearinput>
 //         <div class="autocomplete transition autocomplete-{{ name }}" id="autocomplete-{{ name }}" v-show="showList"> 
@@ -1502,8 +1211,16 @@ exports.default = {
     props: {
         // name for unique component identity, also as input dom's name attr
         name: String,
-        // 比较模式
+        // 是否聚焦
         autofocus: {
+            type: Boolean,
+            default: false
+        },
+        fallback: { // 尽量表现的像一个input输入框
+            type: Boolean,
+            default: true
+        },
+        autoSelect: {
             type: Boolean,
             default: false
         },
@@ -1515,6 +1232,8 @@ exports.default = {
 
         // 用于同步父组件
         parentModelKey: String, // v-model like, 用于同步父组件model, 传进字符串作为key
+
+        // 比较模式
         mode: {
             type: String,
             default: 'remote'
@@ -1530,7 +1249,6 @@ exports.default = {
          * @return {Number} result 比较结果,返回相似度,越小说明越接近
          */
         comparer: Function,
-        // 是否聚焦
 
         // ajax请求地址
         url: {
@@ -1574,7 +1292,10 @@ exports.default = {
     }, // end of props
     data: function data() {
         return {
-            vm: "", // 输入值
+            shownValue: '', // 显示值 
+            inputValue: "", // 输入值
+            vm: null, // 用户下拉选择的item(一般为Object, fallback时为String输入值) 真正同步给外界的值
+            userSelected: false,
             showList: false, // 是否显示下拉结果列表
             jsonList: [], // ajax的返回值的解析后的json列表
             json: function json(data) {
@@ -1587,6 +1308,7 @@ exports.default = {
     },
     created: function created() {
         // sync parent model with $data.type
+        this.shownValue = this.$parent.$data[this.parentModelKey];
         this.vm = this.$parent.$data[this.parentModelKey];
     },
     ready: function ready() {
@@ -1706,8 +1428,11 @@ exports.default = {
                         };
                         _this.$dispatch(COMPONENT_NS, msg, _this.name);
                         _this.jsonList = json;
+
                         if (json == null || json.length < 1) {
-                            _this.showNoContentTip = true;
+                            if (!_this.fallback) {
+                                _this.showNoContentTip = true;
+                            }
                         } else {
                             _this.showNoContentTip = false;
                         }
@@ -1723,7 +1448,8 @@ exports.default = {
             this.$els.input && this.$els.input.focus();
         },
         clear: function clear() {
-            this.vm = '';
+            this.shownValue = '';
+            this.vm = null;
         },
 
         // 并不是每个api返回的结构、层级都是一样的，需要接受传参配置，然后递归解析
@@ -1738,17 +1464,22 @@ exports.default = {
 
         // DOMEvent => @input
         input: function input() {
-            var val = this.vm;
+            this.userSelected = false;
+            var val = this.shownValue;
+            this.inputValue = this.shownValue;
             this.showList = true;
 
             var msg = {
                 action: 'input',
                 data: val
             };
+            if (this.fallback) {
+                this.vm = val;
+            }
             this.$dispatch(COMPONENT_NS, msg, this.name);
             this.$emit('fetchData', val);
 
-            return this.$parent.$data[this.parentModelKey] = val;
+            // return this.$parent.$data[this.parentModelKey] = val
         },
 
         // DOMEvent => @dblclick
@@ -1785,9 +1516,22 @@ exports.default = {
                 _this2.$dispatch(COMPONENT_NS, msg, _this2.name);
             }, 250);
         },
+        handleBlur: function handleBlur(e) {
+            if (this.shownValue !== '' && (this.vm == null || this.vm === '')) {
+                if (!this.autoSelect && !this.fallback) {
+                    console.info('maybe you should use `fallback` or `autoSelect` mode to make the value as what you input!');
+                }
+            }
+            this.hideAll(e);
+            if (!this.userSelected && this.autoSelect) {
+                this.vm = this.jsonList && this.jsonList[0];
+                this.shownValue = this.vm[this.anchor];
+                this.jsonList = [];
+            }
+        },
 
         // DOMEvent => @focus
-        focus: function focus(e) {
+        handleFocus: function handleFocus(e) {
             this.focusListIndex = 0;
 
             var msg = {
@@ -1843,10 +1587,12 @@ exports.default = {
     }, // end of methods
     events: {
         selectList: function selectList(data) {
+            this.userSelected = true;
             data = this.json(data);
 
             // Put the selected data to vm(v-model) 
-            this.vm = data[this.anchor];
+            this.vm = data;
+            this.shownValue = data[this.anchor];
             this.showList = false;
 
             var msg = {
@@ -1870,25 +1616,354 @@ exports.default = {
 // </script>
 
 /***/ },
+/* 53 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _keys = __webpack_require__(51);
+
+var _keys2 = _interopRequireDefault(_keys);
+
+var _isInteger = __webpack_require__(50);
+
+var _isInteger2 = _interopRequireDefault(_isInteger);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// <template>
+//     <div class="vc-easyclearinput-component form-group" :class="[statusClass, { 'has-feedback': icon }]" :style="{ 'width': optionalWidth }">
+//         <label class="label-item">{{ label }}</label>
+//         <div class="info-text" :class="infoTextClass">{{ infoText }}</div>
+//         <div :class="{ 'input-box': true, 'input-group': (slotBefore || slotAfter)}">
+//             <slot name="input-before"></slot>
+//             <span v-if="!slot-before || !slot-after" style="width: 1%;display: table-cell">&nbsp;</span><!-- 占位元素，用于撑开宽度，原因未知 -->
+//             <span v-if="icon" class="glyphicon form-control-feedback" :class="iconClass" aria-hidden="true"></span>
+//             <span @click="handleClear" class="clear-it glyphicon glyphicon-remove-circle" :class="{ 'has-icon': icon, 'hide': hideClearIcon, 'slot-after': slotAfter }" aria-hidden="true"></span>
+//             <input class="form-control"
+//                 :class="[ 'form-control', slotBefore ? 'slot-before' : '', slotAfter ? 'slot-after' : '' ]"
+//                 v-if="type !== 'textarea'"
+//                 v-el:input
+//                 :type="type"
+//                 :disabled="disabled"
+//                 :readonly="readonly"
+//                 v-model="value"
+//                 :placeholder="placeholder"
+//                 @focus="handleFocus"
+//                 @blur="handleBlur"
+//             />
+//             <textarea 
+//                 v-if="type === 'textarea'"
+//                 class="form-control"
+//                 v-el:input
+//                 :type="type"
+//                 :disabled="disabled"
+//                 :readonly="readonly"
+//                 v-model="value"
+//                 :placeholder="placeholder"
+//                 @focus="handleFocus"
+//                 @blur="handleBlur"
+//             >
+//             </textarea>
+//             <slot name="input-after"></slot>
+//         </div>
+//     </div>
+// </template>
+
+// <style lang="less">
+// // container
+// .vc-easyclearinput-component {
+
+//     .label-item {
+//         font-weight: normal;
+//         display: table;
+//         vertical-align: bottom;
+//         float: left;
+//         height: 34px;
+//         line-height: 34px;
+//     }
+
+//     textarea.form-control {
+//         resize: vertical;
+//     }
+
+//     .glyphicon {
+//         z-index: 9;
+//     }
+
+//     .input-box {
+//         display: table;
+//         position: relative;
+
+//         .form-control {
+//             width: 100%;
+//             border-radius: 4px!important; 
+//             &.slot-before {
+//                 border-top-left-radius: 0!important;
+//                 border-bottom-left-radius: 0!important;
+//             }
+//             &.slot-after {
+//                 border-top-right-radius: 0!important;
+//                 border-bottom-right-radius: 0!important;
+//             }
+//         }
+//         &:hover {
+//             .clear-it {
+//                 visibility: visible;
+//             }
+//         }
+
+//         .clear-it {
+//             visibility: hidden;
+//             position: absolute;
+//             top: 50%;
+//             right: 6px;
+//             // css3 it more flexible
+//             -webkit-transform: translateY(-50%);
+//             transform: translateY(-50%);
+//             opacity: .3;
+
+//             &.slot-after {
+
+//             }
+
+//             &.has-icon {
+//                 right: 28px;
+//             }
+//         }
+//     }
+
+//     @success: #87d068;
+//     @warning: #fa0;
+//     @error: #f50;
+//     .info-text {
+//         position: absolute;
+//         top: -22px;
+
+//         &.with-success {
+//             color: @success;
+//         }
+//         &.with-warning {
+//             color: @warning;
+//         }
+//         &.with-error {
+//             color: @error;
+//         }
+//     }
+
+// } // end of container
+// </style>
+
+// <script>
+var EVENT_DELAY = 128;
+
+exports.default = {
+    name: 'vc-easyclearinput',
+    props: {
+        type: {
+            type: String,
+            default: 'text'
+        },
+        value: {
+            twoWay: true
+        },
+        label: String,
+        placeholder: String,
+        infoText: {
+            type: String,
+            default: ''
+        },
+        disabled: {
+            type: Boolean,
+            default: false
+        },
+        readonly: {
+            type: Boolean,
+            default: false
+        },
+        autofocus: {
+            type: Boolean,
+            default: false
+        },
+        width: {
+            type: [Number, String],
+            default: '250'
+        },
+        icon: {
+            type: Boolean,
+            default: false
+        },
+        status: {
+            type: String,
+            default: ''
+        },
+        onFocus: { // focus回调
+            type: Function,
+            default: function _default() {}
+        },
+        onBlur: { // blur回调
+            type: Function,
+            default: function _default() {}
+        },
+        onClear: { // onClear回调
+            type: Function,
+            default: function _default() {}
+        }
+    },
+    data: function data() {
+        return {
+            isClear: false,
+            slotBefore: false,
+            slotAfter: false
+        };
+    },
+    created: function created() {},
+    ready: function ready() {
+        if (this.autofocus) {
+            this.focusInput();
+        }
+        // 检查是否有用户自定义slot传入(input-before)
+        this.checkSlot();
+        // 检查用户是否内联了不该内联的事件(focus & blur)
+        this.checkEvents();
+    },
+
+    computed: {
+        hideClearIcon: function hideClearIcon() {
+            return this.value == null || this.value === '' || this.disabled || this.readonly;
+        },
+        optionalWidth: function optionalWidth() {
+            if (this.width == null || this.width === '') {
+                return null;
+            }
+            if ((0, _isInteger2.default)(+this.width)) {
+                return this.width + 'px';
+            }
+            return this.width;
+        },
+        statusClass: function statusClass() {
+            return 'has-' + this.status;
+        },
+        infoTextClass: function infoTextClass() {
+            return 'with-' + this.status;
+        },
+        iconClass: function iconClass() {
+            if (this.status === 'success') {
+                return 'glyphicon-ok';
+            }
+            if (this.status === 'warning') {
+                return 'glyphicon-warning-sign';
+            }
+            if (this.status === 'error') {
+                return 'glyphicon-remove';
+            }
+        }
+    },
+    watch: {
+        autofocus: function autofocus(val) {
+            if (val) {
+                this.focusInput();
+            }
+        }
+    },
+    methods: {
+        checkSlot: function checkSlot() {
+            var keys = (0, _keys2.default)(this._slotContents);
+            for (var i = 0, len = keys.length; i < len; i++) {
+                if (keys[i] === 'input-before') {
+                    this.slotBefore = true;
+                }
+                if (keys[i] === 'input-after') {
+                    this.slotAfter = true;
+                }
+            }
+        },
+        checkEvents: function checkEvents() {
+            var focus = this._events.focus;
+            if (focus && focus.length > 0) {
+                console.warn('if you want to listen on focus event, please use `:on-focus` callback!');
+            }
+            var blur = this._events.blur;
+            if (blur && blur.length > 0) {
+                console.warn('if you want to listen on blur event, please use `:on-blur` callback!');
+            }
+        },
+
+        /**
+         * 点击清除按钮
+         * 1. blur 2. clear 3.focus again
+         * 事件修正，使得小叉号成为类似系统原生的和input一体的控件，
+         * 点击小叉号不应该带来input的失焦还有相应事件的响应
+         */
+        focusInput: function focusInput() {
+            // 工具方法
+            this.$els.input && this.$els.input.focus();
+        },
+        handleBlur: function handleBlur(e) {
+            var _this = this;
+
+            // console.log(1)
+            setTimeout(function () {
+                if (!_this.isClear) {
+                    _this.onBlur(e);
+                } else {
+                    setTimeout(function () {
+                        _this.focusInput();
+                    }, 0);
+                }
+                // this.isClear = false
+            }, EVENT_DELAY);
+        },
+        handleClear: function handleClear() {
+            // console.log(2)
+            // 可编辑状态下
+            if (!this.disabled && !this.readonly) {
+                this.isClear = true;
+                this.value = '';
+                this.onClear();
+                this.focusInput();
+            }
+        },
+        handleFocus: function handleFocus(e) {
+            var _this2 = this;
+
+            // console.log(3)
+            setTimeout(function () {
+                if (!_this2.isClear) {
+                    _this2.onFocus(e);
+                }
+                _this2.isClear = false;
+            }, EVENT_DELAY + 10);
+        }
+    }
+};
+// </script>
+
+/***/ },
 /* 54 */
 /***/ function(module, exports, __webpack_require__) {
 
 __webpack_require__(15)
-module.exports = __webpack_require__(52)
+module.exports = __webpack_require__(53)
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(18)
+;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(19)
 if (false) {
 (function () {
 var hotAPI = require("vue-hot-reload-api")
 hotAPI.install(require("vue"))
 if (!hotAPI.compatible) return
-var id = "-!babel!./../../../.7.1.7@vue-loader/lib/selector.js?type=script&index=0!./Easyclearinput.vue"
+var id = "-!babel!./../../node_modules/.7.1.7@vue-loader/lib/selector.js?type=script&index=0!./Easyclearinput.vue"
 hotAPI.createRecord(id, module.exports)
-module.hot.accept(["-!babel!./../../../.7.1.7@vue-loader/lib/selector.js?type=script&index=0!./Easyclearinput.vue","-!vue-html-loader!./../../../.7.1.7@vue-loader/lib/selector.js?type=template&index=0!./Easyclearinput.vue"], function () {
-var newOptions = require("-!babel!./../../../.7.1.7@vue-loader/lib/selector.js?type=script&index=0!./Easyclearinput.vue")
+module.hot.accept(["-!babel!./../../node_modules/.7.1.7@vue-loader/lib/selector.js?type=script&index=0!./Easyclearinput.vue","-!vue-html-loader!./../../node_modules/.7.1.7@vue-loader/lib/selector.js?type=template&index=0!./Easyclearinput.vue"], function () {
+var newOptions = require("-!babel!./../../node_modules/.7.1.7@vue-loader/lib/selector.js?type=script&index=0!./Easyclearinput.vue")
 if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-var newTemplate = require("-!vue-html-loader!./../../../.7.1.7@vue-loader/lib/selector.js?type=template&index=0!./Easyclearinput.vue")
+var newTemplate = require("-!vue-html-loader!./../../node_modules/.7.1.7@vue-loader/lib/selector.js?type=template&index=0!./Easyclearinput.vue")
 hotAPI.update(id, newOptions, newTemplate)
 })
 })()

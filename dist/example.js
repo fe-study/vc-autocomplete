@@ -10620,7 +10620,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.vcAutocomplete = undefined;
 
-var _Autocomplete = __webpack_require__(58);
+var _Autocomplete = __webpack_require__(57);
 
 var _Autocomplete2 = _interopRequireDefault(_Autocomplete);
 
@@ -10822,7 +10822,32 @@ if(false) {
 }
 
 /***/ },
-/* 17 */,
+/* 17 */
+/***/ function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(19);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// add the styles to the DOM
+var update = __webpack_require__(7)(content, {});
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!./../../node_modules/.0.21.0@css-loader/index.js!./../../node_modules/.7.1.7@vue-loader/lib/style-rewriter.js?id=_v-0d270100&file=Easyclearinput.vue!./../../node_modules/.2.2.3@less-loader/index.js!./../../node_modules/.7.1.7@vue-loader/lib/selector.js?type=style&index=0!./Easyclearinput.vue", function() {
+			var newContent = require("!!./../../node_modules/.0.21.0@css-loader/index.js!./../../node_modules/.7.1.7@vue-loader/lib/style-rewriter.js?id=_v-0d270100&file=Easyclearinput.vue!./../../node_modules/.2.2.3@less-loader/index.js!./../../node_modules/.7.1.7@vue-loader/lib/selector.js?type=style&index=0!./Easyclearinput.vue");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ },
 /* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -10837,12 +10862,30 @@ exports.push([module.i, ".vc-autocomplete-component {\n  position: relative;\n}\
 
 
 /***/ },
-/* 19 */,
-/* 20 */,
+/* 19 */
+/***/ function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(8)();
+// imports
+
+
+// module
+exports.push([module.i, ".vc-easyclearinput-component .label-item {\n  font-weight: normal;\n  display: table;\n  vertical-align: bottom;\n  float: left;\n  height: 34px;\n  line-height: 34px;\n}\n.vc-easyclearinput-component textarea.form-control {\n  resize: vertical;\n}\n.vc-easyclearinput-component .glyphicon {\n  z-index: 9;\n}\n.vc-easyclearinput-component .input-box {\n  display: table;\n  position: relative;\n}\n.vc-easyclearinput-component .input-box .form-control {\n  width: 100%;\n  border-radius: 4px!important;\n}\n.vc-easyclearinput-component .input-box .form-control.slot-before {\n  border-top-left-radius: 0!important;\n  border-bottom-left-radius: 0!important;\n}\n.vc-easyclearinput-component .input-box .form-control.slot-after {\n  border-top-right-radius: 0!important;\n  border-bottom-right-radius: 0!important;\n}\n.vc-easyclearinput-component .input-box:hover .clear-it {\n  visibility: visible;\n}\n.vc-easyclearinput-component .input-box .clear-it {\n  visibility: hidden;\n  position: absolute;\n  top: 50%;\n  right: 6px;\n  -webkit-transform: translateY(-50%);\n  transform: translateY(-50%);\n  opacity: .3;\n}\n.vc-easyclearinput-component .input-box .clear-it.has-icon {\n  right: 28px;\n}\n.vc-easyclearinput-component .info-text {\n  position: absolute;\n  top: -22px;\n}\n.vc-easyclearinput-component .info-text.with-success {\n  color: #87d068;\n}\n.vc-easyclearinput-component .info-text.with-warning {\n  color: #fa0;\n}\n.vc-easyclearinput-component .info-text.with-error {\n  color: #f50;\n}\n", ""]);
+
+// exports
+
+
+/***/ },
+/* 20 */
+/***/ function(module, exports) {
+
+module.exports = "<div class=\"vc-autocomplete-component form-group\">\n        <!--\n        <label class=\"\">{{ label }}</label>\n        <div class=\"input-box\">\n            <input type=\"text\" class=\"form-control\" autocomplete=\"off\"\n                v-el:input\n                :name=\"name\"\n                :placeholder=\"placeholder\"\n                v-model=\"vm\"\n                @input=\"input(vm)\"\n                @blur=\"hideAll\"\n                @keydown=\"keydown\"\n                @focus=\"focus\"\n            />\n            <span class=\"clear-it glyphicon glyphicon-remove-circle\" aria-hidden=\"true\" @click=\"clear()\"></span>\n        </div>\n        -->\n        <vc-easyclearinput\n            :name=\"name\"\n            type=\"text\"\n            :value.sync=\"shownValue\"\n            :placeholder=\"placeholder\"\n            :label=\"label\"\n            @input=\"input | debounce 300\"\n            :on-blur=\"handleBlur\"\n            :on-focus=\"handleFocus\"\n            @keydown=\"keydown\"\n            :on-clear=\"clear\"\n        >\n        </vc-easyclearinput>\n        <div class=\"autocomplete transition autocomplete-{{ name }}\" id=\"autocomplete-{{ name }}\" v-show=\"showList\"> \n            <ul v-if=\"jsonList && jsonList.length > 0\" class=\"dropdown-menu\"> \n                <li v-for=\"data in jsonList\" transition=\"showAll\" :class=\"activeClass($index)\"> \n                    <a href=\"#\" @click.prevent=\"$emit('selectList',data)\" @mousemove=\"mousemove($index)\">\n                        <span class=\"vc-autocomplete-item\">{{ data[anchor] }} {{ data[anchorPlus] }}</span>\n                    </a> \n                </li>\n            </ul> \n            <ul class=\"dropdown-menu\" v-if=\"showNoContentTip\" style=\"text-align: center;padding: 10px;\">没有匹配的{{ label }}数据</ul>\n        </div>\n    </div>";
+
+/***/ },
 /* 21 */
 /***/ function(module, exports) {
 
-module.exports = "<div class=\"vc-autocomplete-component form-group\">\n        <!--\n        <label class=\"\">{{ label }}</label>\n        <div class=\"input-box\">\n            <input type=\"text\" class=\"form-control\" autocomplete=\"off\"\n                v-el:input\n                :name=\"name\"\n                :placeholder=\"placeholder\"\n                v-model=\"vm\"\n                @input=\"input(vm)\"\n                @blur=\"hideAll\"\n                @keydown=\"keydown\"\n                @focus=\"focus\"\n            />\n            <span class=\"clear-it glyphicon glyphicon-remove-circle\" aria-hidden=\"true\" @click=\"clear()\"></span>\n        </div>\n        -->\n        <vc-easyclearinput\n            :name=\"name\"\n            type=\"text\"\n            :value.sync=\"shownValue\"\n            :placeholder=\"placeholder\"\n            :label=\"label\"\n            @input=\"input | debounce 300\"\n            :on-blur=\"hideAll\"\n            :on-focus=\"focus\"\n            @keydown=\"keydown\"\n        >\n        </vc-easyclearinput>\n        <div class=\"autocomplete transition autocomplete-{{ name }}\" id=\"autocomplete-{{ name }}\" v-show=\"showList\"> \n            <ul v-if=\"jsonList && jsonList.length > 0\" class=\"dropdown-menu\"> \n                <li v-for=\"data in jsonList\" transition=\"showAll\" :class=\"activeClass($index)\"> \n                    <a href=\"#\" @click.prevent=\"$emit('selectList',data)\" @mousemove=\"mousemove($index)\">\n                        <span class=\"vc-autocomplete-item\">{{ data[anchor] }} {{ data[anchorPlus] }}</span>\n                    </a> \n                </li>\n            </ul> \n            <ul class=\"dropdown-menu\" v-if=\"showNoContentTip\" style=\"text-align: center;padding: 10px;\">没有匹配的{{ label }}数据</ul>\n        </div>\n    </div>";
+module.exports = "<div class=\"vc-easyclearinput-component form-group\" :class=\"[statusClass, { 'has-feedback': icon }]\" :style=\"{ 'width': optionalWidth }\">\n        <label class=\"label-item\">{{ label }}</label>\n        <div class=\"info-text\" :class=\"infoTextClass\">{{ infoText }}</div>\n        <div :class=\"{ 'input-box': true, 'input-group': (slotBefore || slotAfter)}\">\n            <slot name=\"input-before\"></slot>\n            <span v-if=\"!slot-before || !slot-after\" style=\"width: 1%;display: table-cell\">&nbsp;</span><!-- 占位元素，用于撑开宽度，原因未知 -->\n            <span v-if=\"icon\" class=\"glyphicon form-control-feedback\" :class=\"iconClass\" aria-hidden=\"true\"></span>\n            <span @click=\"handleClear\" class=\"clear-it glyphicon glyphicon-remove-circle\" :class=\"{ 'has-icon': icon, 'hide': hideClearIcon, 'slot-after': slotAfter }\" aria-hidden=\"true\"></span>\n            <input class=\"form-control\"\n                :class=\"[ 'form-control', slotBefore ? 'slot-before' : '', slotAfter ? 'slot-after' : '' ]\"\n                v-if=\"type !== 'textarea'\"\n                v-el:input\n                :type=\"type\"\n                :disabled=\"disabled\"\n                :readonly=\"readonly\"\n                v-model=\"value\"\n                :placeholder=\"placeholder\"\n                @focus=\"handleFocus\"\n                @blur=\"handleBlur\"\n            />\n            <textarea \n                v-if=\"type === 'textarea'\"\n                class=\"form-control\"\n                v-el:input\n                :type=\"type\"\n                :disabled=\"disabled\"\n                :readonly=\"readonly\"\n                v-model=\"value\"\n                :placeholder=\"placeholder\"\n                @focus=\"handleFocus\"\n                @blur=\"handleBlur\"\n            >\n            </textarea>\n            <slot name=\"input-after\"></slot>\n        </div>\n    </div>";
 
 /***/ },
 /* 22 */
@@ -11251,8 +11294,7 @@ module.exports = { "default": __webpack_require__(24), __esModule: true };
 module.exports = { "default": __webpack_require__(25), __esModule: true };
 
 /***/ },
-/* 55 */,
-/* 56 */
+/* 55 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11266,7 +11308,7 @@ var _stringify = __webpack_require__(52);
 
 var _stringify2 = _interopRequireDefault(_stringify);
 
-var _Easyclearinput = __webpack_require__(65);
+var _Easyclearinput = __webpack_require__(58);
 
 var _Easyclearinput2 = _interopRequireDefault(_Easyclearinput);
 
@@ -11297,9 +11339,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //             :placeholder="placeholder"
 //             :label="label"
 //             @input="input | debounce 300"
-//             :on-blur="hideAll"
-//             :on-focus="focus"
+//             :on-blur="handleBlur"
+//             :on-focus="handleFocus"
 //             @keydown="keydown"
+//             :on-clear="clear"
 //         >
 //         </vc-easyclearinput>
 //         <div class="autocomplete transition autocomplete-{{ name }}" id="autocomplete-{{ name }}" v-show="showList"> 
@@ -11441,6 +11484,14 @@ exports.default = {
             type: Boolean,
             default: false
         },
+        fallback: { // 尽量表现的像一个input输入框
+            type: Boolean,
+            default: true
+        },
+        autoSelect: {
+            type: Boolean,
+            default: false
+        },
         label: {
             type: String,
             default: ''
@@ -11511,7 +11562,8 @@ exports.default = {
         return {
             shownValue: '', // 显示值 
             inputValue: "", // 输入值
-            vm: '', // 用户下拉选择的item(一般为Object)
+            vm: null, // 用户下拉选择的item(一般为Object, fallback时为String输入值) 真正同步给外界的值
+            userSelected: false,
             showList: false, // 是否显示下拉结果列表
             jsonList: [], // ajax的返回值的解析后的json列表
             json: function json(data) {
@@ -11644,10 +11696,11 @@ exports.default = {
                         };
                         _this.$dispatch(COMPONENT_NS, msg, _this.name);
                         _this.jsonList = json;
-                        // patch 1021: 执行到这里说明用户输入了，应清除上次的vm，等待用户的新选择
-                        _this.vm = null;
+
                         if (json == null || json.length < 1) {
-                            _this.showNoContentTip = true;
+                            if (!_this.fallback) {
+                                _this.showNoContentTip = true;
+                            }
                         } else {
                             _this.showNoContentTip = false;
                         }
@@ -11679,6 +11732,7 @@ exports.default = {
 
         // DOMEvent => @input
         input: function input() {
+            this.userSelected = false;
             var val = this.shownValue;
             this.inputValue = this.shownValue;
             this.showList = true;
@@ -11687,10 +11741,13 @@ exports.default = {
                 action: 'input',
                 data: val
             };
+            if (this.fallback) {
+                this.vm = val;
+            }
             this.$dispatch(COMPONENT_NS, msg, this.name);
             this.$emit('fetchData', val);
 
-            return this.$parent.$data[this.parentModelKey] = val;
+            // return this.$parent.$data[this.parentModelKey] = val
         },
 
         // DOMEvent => @dblclick
@@ -11727,9 +11784,22 @@ exports.default = {
                 _this2.$dispatch(COMPONENT_NS, msg, _this2.name);
             }, 250);
         },
+        handleBlur: function handleBlur(e) {
+            if (this.shownValue !== '' && (this.vm == null || this.vm === '')) {
+                if (!this.autoSelect && !this.fallback) {
+                    console.info('maybe you should use `fallback` or `autoSelect` mode to make the value as what you input!');
+                }
+            }
+            this.hideAll(e);
+            if (!this.userSelected && this.autoSelect) {
+                this.vm = this.jsonList && this.jsonList[0];
+                this.shownValue = this.vm[this.anchor];
+                this.jsonList = [];
+            }
+        },
 
         // DOMEvent => @focus
-        focus: function focus(e) {
+        handleFocus: function handleFocus(e) {
             this.focusListIndex = 0;
 
             var msg = {
@@ -11785,6 +11855,7 @@ exports.default = {
     }, // end of methods
     events: {
         selectList: function selectList(data) {
+            this.userSelected = true;
             data = this.json(data);
 
             // Put the selected data to vm(v-model) 
@@ -11813,159 +11884,7 @@ exports.default = {
 // </script>
 
 /***/ },
-/* 57 */,
-/* 58 */
-/***/ function(module, exports, __webpack_require__) {
-
-__webpack_require__(16)
-module.exports = __webpack_require__(56)
-
-if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(21)
-if (false) {
-(function () {
-var hotAPI = require("vue-hot-reload-api")
-hotAPI.install(require("vue"))
-if (!hotAPI.compatible) return
-var id = "-!babel!./../../node_modules/.7.1.7@vue-loader/lib/selector.js?type=script&index=0!./Autocomplete.vue"
-hotAPI.createRecord(id, module.exports)
-module.hot.accept(["-!babel!./../../node_modules/.7.1.7@vue-loader/lib/selector.js?type=script&index=0!./Autocomplete.vue","-!vue-html-loader!./../../node_modules/.7.1.7@vue-loader/lib/selector.js?type=template&index=0!./Autocomplete.vue"], function () {
-var newOptions = require("-!babel!./../../node_modules/.7.1.7@vue-loader/lib/selector.js?type=script&index=0!./Autocomplete.vue")
-if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-var newTemplate = require("-!vue-html-loader!./../../node_modules/.7.1.7@vue-loader/lib/selector.js?type=template&index=0!./Autocomplete.vue")
-hotAPI.update(id, newOptions, newTemplate)
-})
-})()
-}
-
-/***/ },
-/* 59 */
-/***/ function(module, exports, __webpack_require__) {
-
-"use strict";
-'use strict';
-
-var _vue = __webpack_require__(13);
-
-var _vue2 = _interopRequireDefault(_vue);
-
-var _src = __webpack_require__(14);
-
-var _src2 = _interopRequireDefault(_src);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-new _vue2.default({
-    el: '#app',
-    data: function data() {
-        return {
-            vm: null,
-            id: "",
-            autofocus: false,
-            label: "label",
-            name: "name",
-            placeholder: "尝试输入vue, api慢，请耐心等待",
-            url: "https://api.github.com/search/issues",
-            page: '1',
-            per_page: '10',
-            target: "items",
-            anchor: "body",
-            parentModelKey: "vm",
-            mode: 'remote',
-            store: [],
-            storeStr: '今天是星期五,今天是周五,明天咱们去钓鱼吧,明天咱们去玩游戏,明天咱们吃火锅,下周今天是星期几,明天天气怎么样, 啦啦啦啦啦啦啦'
-        };
-    },
-    ready: function ready() {
-        this.storeStr = this.store.join(',');
-    },
-
-    methods: {
-        remote: function remote() {
-            this.mode = 'remote';
-            this.placeholder = '尝试输入vue, api慢，请耐心等待';
-            this.vm = '';
-        },
-        local: function local() {
-            this.mode = 'local';
-            this.placeholder = '尝试输入: 明咱钓鱼, 吃火锅';
-            this.vm = '';
-        },
-        parser: function parser(data) {
-            if (data && data.items) {
-                var arr = [];
-                for (var i = 0, len = data.items.length; i < len; i++) {
-                    var obj = {};
-                    var item = data.items[i]['body'] || data.items[i]['title'];
-                    obj[this.anchor] = item.slice(0, 30);
-                    arr.push(obj);
-                }
-                return arr;
-            }
-        }
-    },
-    computed: {
-        store: function store() {
-            return this.storeStr.split(',');
-        },
-        queryBase: function queryBase() {
-            return 'page=' + this.page + '&per_page=' + this.per_page + '&q';
-        }
-    },
-    components: {
-        vcAutocomplete: _src2.default
-    }
-});
-
-/***/ },
-/* 60 */,
-/* 61 */
-/***/ function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(62);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// add the styles to the DOM
-var update = __webpack_require__(7)(content, {});
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!./../../node_modules/.0.21.0@css-loader/index.js!./../../node_modules/.7.1.7@vue-loader/lib/style-rewriter.js?id=_v-0d270100&file=Easyclearinput.vue!./../../node_modules/.2.2.3@less-loader/index.js!./../../node_modules/.7.1.7@vue-loader/lib/selector.js?type=style&index=0!./Easyclearinput.vue", function() {
-			var newContent = require("!!./../../node_modules/.0.21.0@css-loader/index.js!./../../node_modules/.7.1.7@vue-loader/lib/style-rewriter.js?id=_v-0d270100&file=Easyclearinput.vue!./../../node_modules/.2.2.3@less-loader/index.js!./../../node_modules/.7.1.7@vue-loader/lib/selector.js?type=style&index=0!./Easyclearinput.vue");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ },
-/* 62 */
-/***/ function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(8)();
-// imports
-
-
-// module
-exports.push([module.i, ".vc-easyclearinput-component .label-item {\n  font-weight: normal;\n  margin-right: 5px;\n  display: table;\n  vertical-align: bottom;\n  float: left;\n  height: 34px;\n  line-height: 34px;\n}\n.vc-easyclearinput-component textarea.form-control {\n  resize: vertical;\n}\n.vc-easyclearinput-component .glyphicon {\n  z-index: 9;\n}\n.vc-easyclearinput-component .input-box {\n  display: table;\n  position: relative;\n}\n.vc-easyclearinput-component .input-box .form-control {\n  width: 100%;\n}\n.vc-easyclearinput-component .input-box:hover .clear-it {\n  visibility: visible;\n}\n.vc-easyclearinput-component .input-box .clear-it {\n  visibility: hidden;\n  position: absolute;\n  top: 50%;\n  right: 6px;\n  -webkit-transform: translateY(-50%);\n  transform: translateY(-50%);\n  opacity: .3;\n}\n.vc-easyclearinput-component .input-box .clear-it.has-icon {\n  right: 28px;\n}\n.vc-easyclearinput-component .info-text {\n  position: absolute;\n  top: -22px;\n}\n.vc-easyclearinput-component .info-text.with-success {\n  color: #87d068;\n}\n.vc-easyclearinput-component .info-text.with-warning {\n  color: #fa0;\n}\n.vc-easyclearinput-component .info-text.with-error {\n  color: #f50;\n}\n", ""]);
-
-// exports
-
-
-/***/ },
-/* 63 */
-/***/ function(module, exports) {
-
-module.exports = "<div class=\"vc-easyclearinput-component form-group\" :class=\"[statusClass, { 'has-feedback': icon }]\" :style=\"{ 'width': optionalWidth }\">\n        <label class=\"label-item\">{{ label }}&nbsp;:</label>\n        <div :class=\"{ 'input-box': true, 'input-group': hasSlot }\">\n            <slot name=\"input-before\"></slot>\n            <span v-if=\"!hasSlot\" style=\"width: 1%;display: table-cell\">&nbsp;</span><!-- 占位元素，用于撑开宽度，原因未知 -->\n            <span v-if=\"icon\" class=\"glyphicon form-control-feedback\" :class=\"iconClass\" aria-hidden=\"true\"></span>\n            <span @click=\"handleClear\" class=\"clear-it glyphicon glyphicon-remove-circle\" :class=\"{ 'has-icon': icon, 'hide': hideClearIcon }\" aria-hidden=\"true\"></span>\n            <div class=\"info-text\" :class=\"infoTextClass\">{{ infoText }}</div>\n            <input class=\"form-control\"\n                v-if=\"type !== 'textarea'\"\n                v-el:input\n                :type=\"type\"\n                :disabled=\"disabled\"\n                :readonly=\"readonly\"\n                v-model=\"value\"\n                :placeholder=\"placeholder\"\n                @focus=\"handleFocus\"\n                @blur=\"handleBlur\"\n            />\n            <textarea \n                v-if=\"type === 'textarea'\"\n                class=\"form-control\"\n                v-el:input\n                :type=\"type\"\n                :disabled=\"disabled\"\n                :readonly=\"readonly\"\n                v-model=\"value\"\n                :placeholder=\"placeholder\"\n                @focus=\"handleFocus\"\n                @blur=\"handleBlur\"\n            >\n            </textarea\n        </div>\n    </div>\n</template>";
-
-/***/ },
-/* 64 */
+/* 56 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11987,14 +11906,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // <template>
 //     <div class="vc-easyclearinput-component form-group" :class="[statusClass, { 'has-feedback': icon }]" :style="{ 'width': optionalWidth }">
-//         <label class="label-item">{{ label }}&nbsp;:</label>
-//         <div :class="{ 'input-box': true, 'input-group': hasSlot }">
+//         <label class="label-item">{{ label }}</label>
+//         <div class="info-text" :class="infoTextClass">{{ infoText }}</div>
+//         <div :class="{ 'input-box': true, 'input-group': (slotBefore || slotAfter)}">
 //             <slot name="input-before"></slot>
-//             <span v-if="!hasSlot" style="width: 1%;display: table-cell">&nbsp;</span><!-- 占位元素，用于撑开宽度，原因未知 -->
+//             <span v-if="!slot-before || !slot-after" style="width: 1%;display: table-cell">&nbsp;</span><!-- 占位元素，用于撑开宽度，原因未知 -->
 //             <span v-if="icon" class="glyphicon form-control-feedback" :class="iconClass" aria-hidden="true"></span>
-//             <span @click="handleClear" class="clear-it glyphicon glyphicon-remove-circle" :class="{ 'has-icon': icon, 'hide': hideClearIcon }" aria-hidden="true"></span>
-//             <div class="info-text" :class="infoTextClass">{{ infoText }}</div>
+//             <span @click="handleClear" class="clear-it glyphicon glyphicon-remove-circle" :class="{ 'has-icon': icon, 'hide': hideClearIcon, 'slot-after': slotAfter }" aria-hidden="true"></span>
 //             <input class="form-control"
+//                 :class="[ 'form-control', slotBefore ? 'slot-before' : '', slotAfter ? 'slot-after' : '' ]"
 //                 v-if="type !== 'textarea'"
 //                 v-el:input
 //                 :type="type"
@@ -12017,7 +11937,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //                 @focus="handleFocus"
 //                 @blur="handleBlur"
 //             >
-//             </textarea
+//             </textarea>
+//             <slot name="input-after"></slot>
 //         </div>
 //     </div>
 // </template>
@@ -12028,7 +11949,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 //     .label-item {
 //         font-weight: normal;
-//         margin-right: 5px;
 //         display: table;
 //         vertical-align: bottom;
 //         float: left;
@@ -12050,6 +11970,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 //         .form-control {
 //             width: 100%;
+//             border-radius: 4px!important; 
+//             &.slot-before {
+//                 border-top-left-radius: 0!important;
+//                 border-bottom-left-radius: 0!important;
+//             }
+//             &.slot-after {
+//                 border-top-right-radius: 0!important;
+//                 border-bottom-right-radius: 0!important;
+//             }
 //         }
 //         &:hover {
 //             .clear-it {
@@ -12066,6 +11995,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //             -webkit-transform: translateY(-50%);
 //             transform: translateY(-50%);
 //             opacity: .3;
+
+//             &.slot-after {
+
+//             }
 
 //             &.has-icon {
 //                 right: 28px;
@@ -12153,7 +12086,8 @@ exports.default = {
     data: function data() {
         return {
             isClear: false,
-            hasSlot: true
+            slotBefore: false,
+            slotAfter: false
         };
     },
     created: function created() {},
@@ -12208,9 +12142,14 @@ exports.default = {
     methods: {
         checkSlot: function checkSlot() {
             var keys = (0, _keys2.default)(this._slotContents);
-            this.hasSlot = keys.some(function (item, index) {
-                return item === 'input-before';
-            });
+            for (var i = 0, len = keys.length; i < len; i++) {
+                if (keys[i] === 'input-before') {
+                    this.slotBefore = true;
+                }
+                if (keys[i] === 'input-after') {
+                    this.slotAfter = true;
+                }
+            }
         },
         checkEvents: function checkEvents() {
             var focus = this._events.focus;
@@ -12274,14 +12213,39 @@ exports.default = {
 // </script>
 
 /***/ },
-/* 65 */
+/* 57 */
 /***/ function(module, exports, __webpack_require__) {
 
-__webpack_require__(61)
-module.exports = __webpack_require__(64)
+__webpack_require__(16)
+module.exports = __webpack_require__(55)
 
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(63)
+;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(20)
+if (false) {
+(function () {
+var hotAPI = require("vue-hot-reload-api")
+hotAPI.install(require("vue"))
+if (!hotAPI.compatible) return
+var id = "-!babel!./../../node_modules/.7.1.7@vue-loader/lib/selector.js?type=script&index=0!./Autocomplete.vue"
+hotAPI.createRecord(id, module.exports)
+module.hot.accept(["-!babel!./../../node_modules/.7.1.7@vue-loader/lib/selector.js?type=script&index=0!./Autocomplete.vue","-!vue-html-loader!./../../node_modules/.7.1.7@vue-loader/lib/selector.js?type=template&index=0!./Autocomplete.vue"], function () {
+var newOptions = require("-!babel!./../../node_modules/.7.1.7@vue-loader/lib/selector.js?type=script&index=0!./Autocomplete.vue")
+if (newOptions && newOptions.__esModule) newOptions = newOptions.default
+var newTemplate = require("-!vue-html-loader!./../../node_modules/.7.1.7@vue-loader/lib/selector.js?type=template&index=0!./Autocomplete.vue")
+hotAPI.update(id, newOptions, newTemplate)
+})
+})()
+}
+
+/***/ },
+/* 58 */
+/***/ function(module, exports, __webpack_require__) {
+
+__webpack_require__(17)
+module.exports = __webpack_require__(56)
+
+if (module.exports.__esModule) module.exports = module.exports.default
+;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(21)
 if (false) {
 (function () {
 var hotAPI = require("vue-hot-reload-api")
@@ -12297,6 +12261,85 @@ hotAPI.update(id, newOptions, newTemplate)
 })
 })()
 }
+
+/***/ },
+/* 59 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+'use strict';
+
+var _vue = __webpack_require__(13);
+
+var _vue2 = _interopRequireDefault(_vue);
+
+var _src = __webpack_require__(14);
+
+var _src2 = _interopRequireDefault(_src);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+new _vue2.default({
+    el: '#app',
+    data: function data() {
+        return {
+            vm: null,
+            id: "",
+            autofocus: false,
+            label: "label",
+            name: "name",
+            placeholder: "尝试输入vue, api慢，请耐心等待",
+            url: "https://api.github.com/search/issues",
+            page: '1',
+            per_page: '10',
+            target: "items",
+            anchor: "body",
+            parentModelKey: "vm",
+            mode: 'remote',
+            store: [],
+            storeStr: '今天是星期五,今天是周五,明天咱们去钓鱼吧,明天咱们去玩游戏,明天咱们吃火锅,下周今天是星期几,明天天气怎么样, 啦啦啦啦啦啦啦'
+        };
+    },
+    ready: function ready() {
+        this.storeStr = this.store.join(',');
+    },
+
+    methods: {
+        remote: function remote() {
+            this.mode = 'remote';
+            this.placeholder = '尝试输入vue, api慢，请耐心等待';
+            this.vm = '';
+        },
+        local: function local() {
+            this.mode = 'local';
+            this.placeholder = '尝试输入: 明咱钓鱼, 吃火锅';
+            this.vm = '';
+        },
+        parser: function parser(data) {
+            if (data && data.items) {
+                var arr = [];
+                for (var i = 0, len = data.items.length; i < len; i++) {
+                    var obj = {};
+                    var item = data.items[i]['body'] || data.items[i]['title'];
+                    obj[this.anchor] = item.slice(0, 30);
+                    arr.push(obj);
+                }
+                return arr;
+            }
+        }
+    },
+    computed: {
+        store: function store() {
+            return this.storeStr.split(',');
+        },
+        queryBase: function queryBase() {
+            return 'page=' + this.page + '&per_page=' + this.per_page + '&q';
+        }
+    },
+    components: {
+        vcAutocomplete: _src2.default
+    }
+});
 
 /***/ }
 /******/ ])

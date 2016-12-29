@@ -23,9 +23,10 @@
             :placeholder="placeholder"
             :label="label"
             @input="input | debounce 300"
-            :on-blur="hideAll"
-            :on-focus="focus"
+            :on-blur="handleBlur"
+            :on-focus="handleFocus"
             @keydown="keydown"
+            :on-clear="clear"
         >
         </vc-easyclearinput>
         <div class="autocomplete transition autocomplete-{{ name }}" id="autocomplete-{{ name }}" v-show="showList"> 
@@ -169,6 +170,14 @@ export default {
             type: Boolean,
             default: false 
         },
+        fallback: { // 尽量表现的像一个input输入框
+            type: Boolean,
+            default: true,
+        },
+        autoSelect: {
+            type: Boolean,
+            default: false 
+        },
         label: {
             type: String,
             default: ''
@@ -239,7 +248,8 @@ export default {
         return {
             shownValue: '', // 显示值 
             inputValue: "", // 输入值
-            vm: '', // 用户下拉选择的item(一般为Object)
+            vm: null, // 用户下拉选择的item(一般为Object, fallback时为String输入值) 真正同步给外界的值
+            userSelected: false,
             showList: false, // 是否显示下拉结果列表
             jsonList: [], // ajax的返回值的解析后的json列表
             json (data) {
@@ -366,10 +376,11 @@ export default {
                     }
                     this.$dispatch(COMPONENT_NS, msg, this.name)
                     this.jsonList = json
-                    // patch 1021: 执行到这里说明用户输入了，应清除上次的vm，等待用户的新选择
-                    this.vm = null
+
                     if (json == null || json.length < 1) {
-                        this.showNoContentTip = true
+                        if (!this.fallback) {
+                            this.showNoContentTip = true
+                        }
                     } else {
                         this.showNoContentTip = false
                     }
@@ -398,6 +409,7 @@ export default {
         },
         // DOMEvent => @input
         input () {
+            this.userSelected = false
             let val = this.shownValue
             this.inputValue = this.shownValue
             this.showList = true
@@ -406,10 +418,13 @@ export default {
                 action: 'input',
                 data: val
             }
+            if (this.fallback) {
+                this.vm = val
+            }
             this.$dispatch(COMPONENT_NS, msg, this.name)
             this.$emit('fetchData', val)
 
-            return this.$parent.$data[this.parentModelKey] = val
+            // return this.$parent.$data[this.parentModelKey] = val
         },
         // DOMEvent => @dblclick
         showAll () {
@@ -443,8 +458,21 @@ export default {
                 this.$dispatch(COMPONENT_NS, msg, this.name)
             }, 250)
         },
+        handleBlur (e) {
+            if ( (this.shownValue !== '') && (this.vm == null || this.vm === '') ) {
+                if (!this.autoSelect && !this.fallback) {
+                    console.info('maybe you should use `fallback` or `autoSelect` mode to make the value as what you input!')
+                }
+            }
+            this.hideAll(e)
+            if (!this.userSelected && this.autoSelect) {
+                this.vm = this.jsonList && this.jsonList[0]
+                this.shownValue = this.vm[this.anchor]
+                this.jsonList = []
+            }
+        },
         // DOMEvent => @focus
-        focus (e) {
+        handleFocus (e) {
             this.focusListIndex = 0
 
             let msg = {
@@ -493,6 +521,7 @@ export default {
     }, // end of methods
     events: {
         selectList (data) {
+            this.userSelected = true
             data = this.json(data)
 
             // Put the selected data to vm(v-model) 

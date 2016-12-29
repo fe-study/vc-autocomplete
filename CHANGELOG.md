@@ -1,5 +1,15 @@
 <h1 align="center">vc-autocomplete- @changelog</h1>
 
+## 0.4.0
+
+`2016-12-29`
+
+- 增加 `autoSelect(default: false)` 和 `fallback(default: true)` 属性，分别代表输入框失去焦点后默认选择请求到的第一个item和无数据降级到普通输入框
+- 增加了清除 `jsonList` 时机
+- 给出了推荐使用 `fallback|autoSelect` 模式的时机
+- 去除了 `loadend` 事件中处理中的诸多设计，比如清除 `vm` ，同步 `shownValue` 等
+
+
 ## 0.3.0
 
 `2016-10-21`
@@ -7,7 +17,7 @@
 `break change`
 
 - 内置 `vm` 变更，不再为 `data[anchor]` 形式，改为复杂代表整个用户下拉选中项的对象
-- 内置三层value，`shownValue`: 展示的值, `inputValue`: 输入的值, `vm`: 用户选择的项
+- 内置三层value，`shownValue`: 展示的值, `inputValue`: 输入的值, `vm`: 用户选择的项(Object | String)
 
 ## 0.2.9
 
