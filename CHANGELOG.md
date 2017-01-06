@@ -1,5 +1,11 @@
 <h1 align="center">vc-autocomplete- @changelog</h1>
 
+## 0.5.0
+
+`2017-01-07`
+
+- fix `methods#handleBlur` bug，加强了类型检查，此处jsonList的清空时机值得商榷
+
 ## 0.4.0
 
 `2016-12-29`

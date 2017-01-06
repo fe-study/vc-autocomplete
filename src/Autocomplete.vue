@@ -1,21 +1,5 @@
 <template>
     <div class="vc-autocomplete-component form-group">
-        <!--
-        <label class="">{{ label }}</label>
-        <div class="input-box">
-            <input type="text" class="form-control" autocomplete="off"
-                v-el:input
-                :name="name"
-                :placeholder="placeholder"
-                v-model="vm"
-                @input="input(vm)"
-                @blur="hideAll"
-                @keydown="keydown"
-                @focus="focus"
-            />
-            <span class="clear-it glyphicon glyphicon-remove-circle" aria-hidden="true" @click="clear()"></span>
-        </div>
-        -->
         <vc-easyclearinput
             :name="name"
             type="text"
@@ -28,17 +12,17 @@
             @keydown="keydown"
             :on-clear="clear"
         >
+            <div class="autocomplete transition autocomplete-{{ name }}" id="autocomplete-{{ name }}" v-show="showList"> 
+                <ul v-if="jsonList && jsonList.length > 0" class="dropdown-menu"> 
+                    <li v-for="data in jsonList" transition="showAll" :class="activeClass($index)"> 
+                        <a href="#" @click.prevent="$emit('selectList',data)" @mousemove="mousemove($index)">
+                            <span class="vc-autocomplete-item">{{ data[anchor] }} {{ data[anchorPlus] }}</span>
+                        </a> 
+                    </li>
+                </ul> 
+                <ul class="dropdown-menu" v-if="showNoContentTip" style="text-align: center;padding: 10px;">没有匹配的{{ label }}数据</ul>
+            </div>
         </vc-easyclearinput>
-        <div class="autocomplete transition autocomplete-{{ name }}" id="autocomplete-{{ name }}" v-show="showList"> 
-            <ul v-if="jsonList && jsonList.length > 0" class="dropdown-menu"> 
-                <li v-for="data in jsonList" transition="showAll" :class="activeClass($index)"> 
-                    <a href="#" @click.prevent="$emit('selectList',data)" @mousemove="mousemove($index)">
-                        <span class="vc-autocomplete-item">{{ data[anchor] }} {{ data[anchorPlus] }}</span>
-                    </a> 
-                </li>
-            </ul> 
-            <ul class="dropdown-menu" v-if="showNoContentTip" style="text-align: center;padding: 10px;">没有匹配的{{ label }}数据</ul>
-        </div>
     </div>
 </template>
 
@@ -466,9 +450,11 @@ export default {
             }
             this.hideAll(e)
             if (!this.userSelected && this.autoSelect) {
-                this.vm = this.jsonList && this.jsonList[0]
-                this.shownValue = this.vm[this.anchor]
-                this.jsonList = []
+                this.vm = this.jsonList && this.jsonList[0] || this.vm
+                if ( (typeof this.vm === 'string') || (this.vm == null) ) {
+                    this.shownValue = this.vm && this.vm[this.anchor]
+                }
+                this.jsonList = [] // 值得商榷
             }
         },
         // DOMEvent => @focus

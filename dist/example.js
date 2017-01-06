@@ -10879,13 +10879,13 @@ exports.push([module.i, ".vc-easyclearinput-component .label-item {\n  font-weig
 /* 20 */
 /***/ function(module, exports) {
 
-module.exports = "<div class=\"vc-autocomplete-component form-group\">\n        <!--\n        <label class=\"\">{{ label }}</label>\n        <div class=\"input-box\">\n            <input type=\"text\" class=\"form-control\" autocomplete=\"off\"\n                v-el:input\n                :name=\"name\"\n                :placeholder=\"placeholder\"\n                v-model=\"vm\"\n                @input=\"input(vm)\"\n                @blur=\"hideAll\"\n                @keydown=\"keydown\"\n                @focus=\"focus\"\n            />\n            <span class=\"clear-it glyphicon glyphicon-remove-circle\" aria-hidden=\"true\" @click=\"clear()\"></span>\n        </div>\n        -->\n        <vc-easyclearinput\n            :name=\"name\"\n            type=\"text\"\n            :value.sync=\"shownValue\"\n            :placeholder=\"placeholder\"\n            :label=\"label\"\n            @input=\"input | debounce 300\"\n            :on-blur=\"handleBlur\"\n            :on-focus=\"handleFocus\"\n            @keydown=\"keydown\"\n            :on-clear=\"clear\"\n        >\n        </vc-easyclearinput>\n        <div class=\"autocomplete transition autocomplete-{{ name }}\" id=\"autocomplete-{{ name }}\" v-show=\"showList\"> \n            <ul v-if=\"jsonList && jsonList.length > 0\" class=\"dropdown-menu\"> \n                <li v-for=\"data in jsonList\" transition=\"showAll\" :class=\"activeClass($index)\"> \n                    <a href=\"#\" @click.prevent=\"$emit('selectList',data)\" @mousemove=\"mousemove($index)\">\n                        <span class=\"vc-autocomplete-item\">{{ data[anchor] }} {{ data[anchorPlus] }}</span>\n                    </a> \n                </li>\n            </ul> \n            <ul class=\"dropdown-menu\" v-if=\"showNoContentTip\" style=\"text-align: center;padding: 10px;\">没有匹配的{{ label }}数据</ul>\n        </div>\n    </div>";
+module.exports = "<div class=\"vc-autocomplete-component form-group\">\n        <vc-easyclearinput\n            :name=\"name\"\n            type=\"text\"\n            :value.sync=\"shownValue\"\n            :placeholder=\"placeholder\"\n            :label=\"label\"\n            @input=\"input | debounce 300\"\n            :on-blur=\"handleBlur\"\n            :on-focus=\"handleFocus\"\n            @keydown=\"keydown\"\n            :on-clear=\"clear\"\n        >\n            <div class=\"autocomplete transition autocomplete-{{ name }}\" id=\"autocomplete-{{ name }}\" v-show=\"showList\"> \n                <ul v-if=\"jsonList && jsonList.length > 0\" class=\"dropdown-menu\"> \n                    <li v-for=\"data in jsonList\" transition=\"showAll\" :class=\"activeClass($index)\"> \n                        <a href=\"#\" @click.prevent=\"$emit('selectList',data)\" @mousemove=\"mousemove($index)\">\n                            <span class=\"vc-autocomplete-item\">{{ data[anchor] }} {{ data[anchorPlus] }}</span>\n                        </a> \n                    </li>\n                </ul> \n                <ul class=\"dropdown-menu\" v-if=\"showNoContentTip\" style=\"text-align: center;padding: 10px;\">没有匹配的{{ label }}数据</ul>\n            </div>\n        </vc-easyclearinput>\n    </div>";
 
 /***/ },
 /* 21 */
 /***/ function(module, exports) {
 
-module.exports = "<div class=\"vc-easyclearinput-component form-group\" :class=\"[statusClass, { 'has-feedback': icon }]\" :style=\"{ 'width': optionalWidth }\">\n        <label class=\"label-item\">{{ label }}</label>\n        <div class=\"info-text\" :class=\"infoTextClass\">{{ infoText }}</div>\n        <div :class=\"{ 'input-box': true, 'input-group': (slotBefore || slotAfter)}\">\n            <slot name=\"input-before\"></slot>\n            <span v-if=\"!slot-before || !slot-after\" style=\"width: 1%;display: table-cell\">&nbsp;</span><!-- 占位元素，用于撑开宽度，原因未知 -->\n            <span v-if=\"icon\" class=\"glyphicon form-control-feedback\" :class=\"iconClass\" aria-hidden=\"true\"></span>\n            <span @click=\"handleClear\" class=\"clear-it glyphicon glyphicon-remove-circle\" :class=\"{ 'has-icon': icon, 'hide': hideClearIcon, 'slot-after': slotAfter }\" aria-hidden=\"true\"></span>\n            <input class=\"form-control\"\n                :class=\"[ 'form-control', slotBefore ? 'slot-before' : '', slotAfter ? 'slot-after' : '' ]\"\n                v-if=\"type !== 'textarea'\"\n                v-el:input\n                :type=\"type\"\n                :disabled=\"disabled\"\n                :readonly=\"readonly\"\n                v-model=\"value\"\n                :placeholder=\"placeholder\"\n                @focus=\"handleFocus\"\n                @blur=\"handleBlur\"\n            />\n            <textarea \n                v-if=\"type === 'textarea'\"\n                class=\"form-control\"\n                v-el:input\n                :type=\"type\"\n                :disabled=\"disabled\"\n                :readonly=\"readonly\"\n                v-model=\"value\"\n                :placeholder=\"placeholder\"\n                @focus=\"handleFocus\"\n                @blur=\"handleBlur\"\n            >\n            </textarea>\n            <slot name=\"input-after\"></slot>\n        </div>\n    </div>";
+module.exports = "<div class=\"vc-easyclearinput-component form-group\" :class=\"[statusClass, { 'has-feedback': icon }]\" :style=\"{ 'width': optionalWidth }\">\n        <label class=\"label-item\">{{ label }}</label>\n        <div class=\"info-text\" :class=\"infoTextClass\">{{ infoText }}</div>\n        <div :class=\"{ 'input-box': true, 'input-group': (slotBefore || slotAfter)}\">\n            <slot name=\"input-before\"></slot>\n            <span v-if=\"!slot-before || !slot-after\" style=\"width: 1%;display: table-cell\">&nbsp;</span><!-- 占位元素，用于撑开宽度，原因未知 -->\n            <span v-if=\"icon\" class=\"glyphicon form-control-feedback\" :class=\"iconClass\" aria-hidden=\"true\"></span>\n            <span @click=\"handleClear\" class=\"clear-it glyphicon glyphicon-remove-circle\" :class=\"{ 'has-icon': icon, 'hide': hideClearIcon, 'slot-after': slotAfter }\" aria-hidden=\"true\"></span>\n            <input class=\"form-control\"\n                :class=\"[ 'form-control', slotBefore ? 'slot-before' : '', slotAfter ? 'slot-after' : '' ]\"\n                v-if=\"type !== 'textarea'\"\n                v-el:input\n                :type=\"type\"\n                :disabled=\"disabled\"\n                :readonly=\"readonly\"\n                v-model=\"value\"\n                :placeholder=\"placeholder\"\n                @focus=\"handleFocus\"\n                @blur=\"handleBlur\"\n            />\n            <textarea \n                v-if=\"type === 'textarea'\"\n                class=\"form-control\"\n                v-el:input\n                :type=\"type\"\n                :disabled=\"disabled\"\n                :readonly=\"readonly\"\n                v-model=\"value\"\n                :placeholder=\"placeholder\"\n                @focus=\"handleFocus\"\n                @blur=\"handleBlur\"\n            >\n            </textarea>\n            <slot></slot>\n            <slot name=\"input-after\"></slot>\n        </div>\n    </div>";
 
 /***/ },
 /* 22 */
@@ -11316,22 +11316,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // <template>
 //     <div class="vc-autocomplete-component form-group">
-//         <!--
-//         <label class="">{{ label }}</label>
-//         <div class="input-box">
-//             <input type="text" class="form-control" autocomplete="off"
-//                 v-el:input
-//                 :name="name"
-//                 :placeholder="placeholder"
-//                 v-model="vm"
-//                 @input="input(vm)"
-//                 @blur="hideAll"
-//                 @keydown="keydown"
-//                 @focus="focus"
-//             />
-//             <span class="clear-it glyphicon glyphicon-remove-circle" aria-hidden="true" @click="clear()"></span>
-//         </div>
-//         -->
 //         <vc-easyclearinput
 //             :name="name"
 //             type="text"
@@ -11344,17 +11328,17 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //             @keydown="keydown"
 //             :on-clear="clear"
 //         >
+//             <div class="autocomplete transition autocomplete-{{ name }}" id="autocomplete-{{ name }}" v-show="showList"> 
+//                 <ul v-if="jsonList && jsonList.length > 0" class="dropdown-menu"> 
+//                     <li v-for="data in jsonList" transition="showAll" :class="activeClass($index)"> 
+//                         <a href="#" @click.prevent="$emit('selectList',data)" @mousemove="mousemove($index)">
+//                             <span class="vc-autocomplete-item">{{ data[anchor] }} {{ data[anchorPlus] }}</span>
+//                         </a> 
+//                     </li>
+//                 </ul> 
+//                 <ul class="dropdown-menu" v-if="showNoContentTip" style="text-align: center;padding: 10px;">没有匹配的{{ label }}数据</ul>
+//             </div>
 //         </vc-easyclearinput>
-//         <div class="autocomplete transition autocomplete-{{ name }}" id="autocomplete-{{ name }}" v-show="showList"> 
-//             <ul v-if="jsonList && jsonList.length > 0" class="dropdown-menu"> 
-//                 <li v-for="data in jsonList" transition="showAll" :class="activeClass($index)"> 
-//                     <a href="#" @click.prevent="$emit('selectList',data)" @mousemove="mousemove($index)">
-//                         <span class="vc-autocomplete-item">{{ data[anchor] }} {{ data[anchorPlus] }}</span>
-//                     </a> 
-//                 </li>
-//             </ul> 
-//             <ul class="dropdown-menu" v-if="showNoContentTip" style="text-align: center;padding: 10px;">没有匹配的{{ label }}数据</ul>
-//         </div>
 //     </div>
 // </template>
 
@@ -11792,9 +11776,11 @@ exports.default = {
             }
             this.hideAll(e);
             if (!this.userSelected && this.autoSelect) {
-                this.vm = this.jsonList && this.jsonList[0];
-                this.shownValue = this.vm[this.anchor];
-                this.jsonList = [];
+                this.vm = this.jsonList && this.jsonList[0] || this.vm;
+                if (typeof this.vm === 'string' || this.vm == null) {
+                    this.shownValue = this.vm && this.vm[this.anchor];
+                }
+                this.jsonList = []; // 值得商榷
             }
         },
 
@@ -11938,6 +11924,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //                 @blur="handleBlur"
 //             >
 //             </textarea>
+//             <slot></slot>
 //             <slot name="input-after"></slot>
 //         </div>
 //     </div>

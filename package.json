@@ -1,7 +1,7 @@
 {
   "author": "indexxuan@gmail.com",
   "name": "vc-autocomplete",
-  "version": "0.3.1",
+  "version": "0.5.0",
   "description": "autocomplete(local & remote) component based on vue.js & bootstrap",
   "scripts": {
     "start": "webpack-dev-server --inline --hot --quiet",
