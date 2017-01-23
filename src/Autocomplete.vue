@@ -231,13 +231,13 @@ export default {
     data () {
         return {
             shownValue: '', // 显示值 
-            inputValue: "", // 输入值
+            inputValue: '', // 输入值
             vm: null, // 用户下拉选择的item(一般为Object, fallback时为String输入值) 真正同步给外界的值
             userSelected: false,
             showList: false, // 是否显示下拉结果列表
             jsonList: [], // ajax的返回值的解析后的json列表
             json (data) {
-                return JSON.parse(JSON.stringify(data))
+                return data && JSON.parse(JSON.stringify(data))
             },
             showNoContentTip: false,
             focusListIndex: "" // focus的item游标
@@ -486,8 +486,10 @@ export default {
                     this.focusListIndex--
                 break
                 case 13: //enter
-                    this.$emit('selectList', this.jsonList[this.focusListIndex])
-                    this.showList = false
+                    if (this.jsonList) {
+                        this.$emit('selectList', this.jsonList[this.focusListIndex])
+                        this.showList = false
+                    }
                 break
                 case 27: //esc
                     this.showList = false
@@ -511,6 +513,9 @@ export default {
             data = this.json(data)
 
             // Put the selected data to vm(v-model) 
+            if (!data) {
+                return
+            }
             this.vm = data
             this.shownValue = data[this.anchor]
             this.showList = false

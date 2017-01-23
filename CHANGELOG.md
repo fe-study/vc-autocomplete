@@ -1,8 +1,14 @@
 <h1 align="center">vc-autocomplete- @changelog</h1>
 
+## 0.5.1
+
+`2017-01-23`
+
+- 修复关键词无返回结果情况下直接 `enter` 导致的报错
+
 ## 0.5.0
 
-`2017-01-07`
+`2017-01-06`
 
 - fix `methods#handleBlur` bug，加强了类型检查，此处jsonList的清空时机值得商榷
 
