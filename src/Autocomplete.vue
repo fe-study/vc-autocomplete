@@ -12,10 +12,11 @@
             @keydown="keydown"
             :on-clear="clear"
         >
-            <div class="autocomplete transition autocomplete-{{ name }}" id="autocomplete-{{ name }}" v-show="showList"> 
-                <ul v-if="jsonList && jsonList.length > 0" class="dropdown-menu"> 
+            <div :class="[ 'autocomplete', 'transition', 'autocomplete-' + name ]" :id="'autocomplete-' + name" v-show="showList"> 
+                <ul v-if="jsonList && jsonList.length > 0" class="dropdown-menu" @mousemove="inList = true" @mouseleave="inList = false"> 
                     <li v-for="data in jsonList" transition="showAll" :class="activeClass($index)"> 
-                        <a href="#" @click.prevent="$emit('selectList',data)" @mousemove="mousemove($index)">
+                        <!--<a href="#" @click.prevent="$emit('selectList',data)" @mousemove="mousemove($index)">-->
+                        <a href="#" @click.prevent="handleClick(data)" @mousemove="mousemove($index)">
                             <span class="vc-autocomplete-item">{{ data[anchor] }} {{ data[anchorPlus] }}</span>
                         </a> 
                     </li>
@@ -240,7 +241,8 @@ export default {
                 return data && JSON.parse(JSON.stringify(data))
             },
             showNoContentTip: false,
-            focusListIndex: "" // focus的item游标
+            focusListIndex: "", // focus的item游标
+            inList: false
         }
     },
     created () {
@@ -261,6 +263,9 @@ export default {
             // CORE: Sync parent model with this.vm
             return this.$parent.$data[this.parentModelKey] = val
         }
+        // inList (val, old) {
+        //     console.log(val)
+        // }
     },
     components: {
         vcEasyclearinput
@@ -443,19 +448,39 @@ export default {
             }, 250)
         },
         handleBlur (e) {
+            // console.log('blur')
             if ( (this.shownValue !== '') && (this.vm == null || this.vm === '') ) {
                 if (!this.autoSelect && !this.fallback) {
                     console.info('maybe you should use `fallback` or `autoSelect` mode to make the value as what you input!')
                 }
             }
             this.hideAll(e)
-            if (!this.userSelected && this.autoSelect) {
+            if (!this.userSelected && this.autoSelect && !this.inList) {
                 this.vm = this.jsonList && this.jsonList[0] || this.vm
-                if ( (typeof this.vm === 'string') || (this.vm == null) ) {
+                if ( (typeof this.vm === 'object') && (this.vm != null) ) {
                     this.shownValue = this.vm && this.vm[this.anchor]
                 }
                 this.jsonList = [] // 值得商榷
             }
+        },
+        handleClick (data) {
+            // console.log('click')
+            this.userSelected = true
+            data = this.json(data)
+
+            // Put the selected data to vm(v-model) 
+            if (!data) {
+                return
+            }
+            this.vm = data
+            this.shownValue = data[this.anchor]
+            this.showList = false
+
+            let msg = {
+                action: 'selected',
+                data: data
+            }
+            this.$dispatch(COMPONENT_NS, msg, this.name)
         },
         // DOMEvent => @focus
         handleFocus (e) {
@@ -487,7 +512,8 @@ export default {
                 break
                 case 13: //enter
                     if (this.jsonList) {
-                        this.$emit('selectList', this.jsonList[this.focusListIndex])
+                        // this.$emit('selectList', this.jsonList[this.focusListIndex])
+                        this.handleClick(this.jsonList[this.focusListIndex])
                         this.showList = false
                     }
                 break
@@ -516,15 +542,17 @@ export default {
             if (!data) {
                 return
             }
-            this.vm = data
-            this.shownValue = data[this.anchor]
-            this.showList = false
+            setTimeout(() => {
+                this.vm = data
+                this.shownValue = data[this.anchor]
+                this.showList = false
 
-            let msg = {
-                action: 'selected',
-                data: data
-            }
-            this.$dispatch(COMPONENT_NS, msg, this.name)
+                let msg = {
+                    action: 'selected',
+                    data: data
+                }
+                this.$dispatch(COMPONENT_NS, msg, this.name)
+            }, 100)
         },
         fetchData (inputVal) {
             if (inputVal == null || inputVal === '') return

@@ -46,6 +46,7 @@
             :id="id"
             :name="name"
             :autofocus="autofocus"
+            :auto-select="autoSelect"
             :placeholder="placeholder"
             :url="url"
             :param="queryBase"
@@ -63,6 +64,7 @@
             :id="id"
             :name="name"
             :autofocus="autofocus"
+            :auto-select="autoSelect"
             :placeholder="placeholder"
             :url="url"
             :param="queryBase"
@@ -88,6 +90,12 @@
             <div>补全组件模式 - 默认: remote</div>
             <label><input type="radio" value="remote" name="mode" v-model="mode">远程补全</label>
             <label><input type="radio" value="local" name="mode" v-model="mode">本地补全</label>
+        </div>
+
+        <div class="form-group">
+            <div>是否开启失焦自动选择第一个 - 默认: false</div>
+            <label><input type="radio" :value="bools.true" name="autoSelect" v-model="autoSelect">是</label>
+            <label><input type="radio" :value="bools.false" name="autoSelect" v-model="autoSelect">否</label>
         </div>
 
         <div class="form-group">

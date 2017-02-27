@@ -5,9 +5,14 @@ new Vue({
 	el: '#app',
 	data () {
 		return {
+            bools: {
+                true: true,
+                false: false
+            },
             vm: null,
             id: "",
             autofocus: false,
+            autoSelect: false,
             label: "label",
             name: "name",
             placeholder: "尝试输入vue, api慢，请耐心等待",

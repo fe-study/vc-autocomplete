@@ -1,5 +1,11 @@
 <h1 align="center">vc-autocomplete- @changelog</h1>
 
+## 0.6.0
+
+`2017-02-24`
+
+- 修复了 `auto-select` 模式下的选择bug，blur事件与click事件先后不确定导致的，引入了状态变量
+
 ## 0.5.1
 
 `2017-01-23`
